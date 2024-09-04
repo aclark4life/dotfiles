@@ -1,0 +1,3 @@
+[dotfiles]
+repository = ~/Dotfiles
+ignore = [".git", "Makefile", "project.mk"]

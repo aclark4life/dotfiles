@@ -30,3 +30,9 @@ bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
 ZSH_THEME="random"
+
+case `uname` in
+  Darwin)
+  osascript $HOME/.terminal_change_color.scpt
+  ;;
+esac
