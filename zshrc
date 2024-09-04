@@ -1,11 +1,13 @@
+# Oh my zsh
 export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="random"
 
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-#
 alias vi="nvim"
 alias cm="checkoutmanager"
 alias ll="ls -l"
@@ -29,10 +31,9 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
-ZSH_THEME="random"
-
 case `uname` in
   Darwin)
   osascript $HOME/.terminal_change_color.scpt
   ;;
 esac
+
