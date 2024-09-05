@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias cm="checkoutmanager"
 alias ll="ls -l"
-alias up="pushd ~/Dotfiles; make; popd; checkoutmanager co; checkoutmanager up"
+alias up="pushd ~/Dotfiles; make ce; popd; checkoutmanager co; checkoutmanager up; fortune"
 alias co="checkoutmanager co"
 
 export PYENV_ROOT="$HOME/.pyenv"
