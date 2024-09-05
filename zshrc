@@ -36,3 +36,5 @@ case `uname` in
   osascript $HOME/.terminal_change_color.scpt
   ;;
 esac
+
+export HOMEBREW_NO_ENV_HINTS=1
