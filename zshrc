@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias cm="checkoutmanager"
 alias ll="ls -l"
-alias up="checkoutmanager up"
+alias up="pushd ~/Dotfiles; make; popd; checkoutmanager co; checkoutmanager up"
 alias co="checkoutmanager co"
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -36,4 +36,3 @@ case `uname` in
   osascript $HOME/.terminal_change_color.scpt
   ;;
 esac
-
