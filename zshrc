@@ -9,10 +9,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias vi="nvim"
-alias cm="checkoutmanager"
 alias ll="ls -l"
-alias up="pushd ~/Dotfiles; make; popd; checkoutmanager co; checkoutmanager up; fortune"
-alias co="checkoutmanager co"
+alias cm="checkoutmanager"
+alias up="checkoutmanager up; fortune"
+alias co="checkoutmanager co; fortune"
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
