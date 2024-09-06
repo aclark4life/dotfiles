@@ -33,7 +33,7 @@ cm() {
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Created by `m`
-export PATH="$(m bin 7.0.0-ent):$PATH"
+# export PATH="$(m bin 7.0.0-ent):$PATH"
 
 # Created by `nvm`
 export NVM_DIR="$HOME/.nvm"
