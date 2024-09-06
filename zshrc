@@ -8,8 +8,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-alias vi="nvim"
 alias ll="ls -l"
+alias vi="nvim"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
