@@ -10,7 +10,15 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 alias vi="nvim"
 alias ll="ls -l"
-alias cm="checkoutmanager -c ~/.checkoutmanager/checkoutmanager.cfg"
+
+
+cm() {
+  local cmd=$1
+  for cfg in ~/.checkoutmanager/*.cfg; do
+    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
+  done
+}
+
 alias up="cm up; fortune"
 alias co="cm co; fortune"
 
