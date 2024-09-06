@@ -1,0 +1,2 @@
+" Disable mouse
+set mouse=
