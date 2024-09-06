@@ -10,9 +10,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 alias vi="nvim"
 alias ll="ls -l"
-alias cm="checkoutmanager"
-alias up="checkoutmanager up; fortune"
-alias co="checkoutmanager co; fortune"
+alias cm="checkoutmanager -c ~/.checkoutmanager/checkoutmanager.cfg"
+alias up="cm up; fortune"
+alias co="cm co; fortune"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
