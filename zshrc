@@ -21,6 +21,8 @@ case `uname` in
   ;;
 esac
 
+# Load the checkoutmanager configuration files found
+# in ~/.checkoutmanager.
 cm() {
   local cmd=$1
   for cfg in ~/.checkoutmanager/*.cfg; do
