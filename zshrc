@@ -14,22 +14,11 @@ alias cm="checkoutmanager"
 alias up="checkoutmanager up; fortune"
 alias co="checkoutmanager co; fortune"
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Created by `pipx` on 2024-09-04 01:33:51
-export PATH="$PATH:/Users/alex.clark/.local/bin"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$(m bin 7.0.0-ent):$PATH"
-
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
+
+export HOMEBREW_NO_ENV_HINTS=1
 
 case `uname` in
   Darwin)
@@ -37,7 +26,21 @@ case `uname` in
   ;;
 esac
 
-export HOMEBREW_NO_ENV_HINTS=1
+# Created by `pyenv`
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Created by `pipx`
+export PATH="$PATH:~/.local/bin"
+
+# Created by `nvm`
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `m`
+export PATH="$(m bin 7.0.0-ent):$PATH"
 
 # Load environment variables from a secret manager
 if command -v aws &> /dev/null; then
