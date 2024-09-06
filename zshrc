@@ -8,7 +8,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-alias ll="ls -l"
 alias vi="nvim"
 
 bindkey -v
