@@ -38,3 +38,8 @@ case `uname` in
 esac
 
 export HOMEBREW_NO_ENV_HINTS=1
+
+# Load environment variables from a secret manager
+if command -v aws &> /dev/null; then
+    eval "$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text)"
+fi
