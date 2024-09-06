@@ -33,13 +33,13 @@ cm() {
 
 export HOMEBREW_NO_ENV_HINTS=1
 
+# Created by `pipx`
+export PATH="$PATH:~/.local/bin"
+
 # Created by `pyenv`
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Created by `pipx`
-export PATH="$PATH:~/.local/bin"
 
 # Created by `nvm`
 export NVM_DIR="$HOME/.nvm"
