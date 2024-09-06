@@ -11,25 +11,25 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias ll="ls -l"
 
-
-cm() {
-  local cmd=$1
-  for cfg in ~/.checkoutmanager/*.cfg; do
-    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
-  done
-}
-
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
-
-export HOMEBREW_NO_ENV_HINTS=1
 
 case `uname` in
   Darwin)
   osascript $HOME/.terminal_change_color.scpt
   ;;
 esac
+
+cm() {
+  local cmd=$1
+  for cfg in ~/.checkoutmanager/*.cfg; do
+    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
+  done
+  fortune
+}
+
+export HOMEBREW_NO_ENV_HINTS=1
 
 # Created by `pyenv`
 export PYENV_ROOT="$HOME/.pyenv"
