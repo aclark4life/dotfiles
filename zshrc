@@ -19,9 +19,6 @@ cm() {
   done
 }
 
-alias up="cm up; fortune"
-alias co="cm co; fortune"
-
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
