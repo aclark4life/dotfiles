@@ -48,7 +48,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Load environment variables from a secret manager
-if command -v aws &> /dev/null; then
-    eval "$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text)"
-fi
+# # Load environment variables from a secret manager
+# if command -v aws &> /dev/null; then
+#     eval "$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text)"
+# fi
