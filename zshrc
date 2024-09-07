@@ -1,3 +1,6 @@
+# -------------------------------------------------------------------------------- 
+# Oh My Zsh configuration
+
 export ZSH="$HOME/.oh-my-zsh"
 export PYTHON_AUTO_VRUN=true
 
@@ -5,12 +8,14 @@ ZSH_THEME="random"
 
 plugins=(git python)
 
-source $HOME/.checkoutmanager.sh
 source $ZSH/oh-my-zsh.sh
+
+# -------------------------------------------------------------------------------- 
 
 alias vi="nvim"
 
-# checkoutmanager.sh function
+# Alias checkoutmanager.sh function calls
+source $HOME/.checkoutmanager.sh
 alias up="cm co; cm up"
 
 # Alias python plugin functions
