@@ -47,6 +47,7 @@ cm() {
 
 export EDITOR=nvim
 export HOMEBREW_NO_ENV_HINTS=1
+export PYTHON_VENV_NAME=.venv
 
 # Created by `m`
 # export PATH="$(m bin 7.0.0-ent):$PATH"
