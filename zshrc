@@ -1,4 +1,3 @@
-# Oh My ZSH
 export ZSH="$HOME/.oh-my-zsh"
 export PYTHON_AUTO_VRUN=true
 
@@ -9,9 +8,17 @@ plugins=(git python)
 source $HOME/.checkoutmanager.sh
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
 alias vi="nvim"
+
+# checkoutmanager.sh function
 alias up="cm co; cm up"
+
+# Alias python plugin functions
+alias v="mkv"
+alias s="vrun"
+
+# RIP https://github.com/aclark4life/vanity
+alias stats="pypistats overall"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
@@ -45,6 +52,3 @@ eval "$(pyenv init -)"
 # if command -v aws &> /dev/null; then
 #     eval "$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text)"
 # fi
-
-# RIP https://github.com/aclark4life/vanity
-alias vanity="pypistats overall"
