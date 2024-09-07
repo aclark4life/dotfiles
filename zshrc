@@ -35,15 +35,10 @@ export EDITOR=nvim
 export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_VENV_NAME=.venv
 
-# Created by `m`
-# export PATH="$(m bin 7.0.0-ent):$PATH"
-
-# Created by `nvm`
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Created by `pyenv`
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
