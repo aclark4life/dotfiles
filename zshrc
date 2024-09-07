@@ -64,3 +64,6 @@ eval "$(pyenv init -)"
 # if command -v aws &> /dev/null; then
 #     eval "$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text)"
 # fi
+
+# RIP https://github.com/aclark4life/vanity
+alias vanity="pypistats overall"
