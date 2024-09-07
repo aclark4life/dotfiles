@@ -9,6 +9,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias vi="nvim"
+alias up="cm up"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
@@ -21,15 +22,24 @@ case `uname` in
 esac
 
 # Load the checkoutmanager configuration files found
-# in ~/.checkoutmanager.
+# in ~/.checkoutmanager or ~/.config/checkoutmanager.
 cm() {
   local cmd=$1
-  for cfg in ~/.checkoutmanager/*.cfg; do
-    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
-  done
-  for cfg in ~/.config/checkoutmanager/*.cfg; do
-    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
-  done
+
+  if [ -z "$cmd" ]; then
+    # Run checkoutmanager once with no arguments
+    checkoutmanager
+  else
+    # Run checkoutmanager with the provided command and configuration files
+    for cfg in ~/.checkoutmanager/*.cfg; do
+      [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
+    done
+
+    for cfg in ~/.config/checkoutmanager/*.cfg; do
+      [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
+    done
+  fi
+
   fortune
 }
 
