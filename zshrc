@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias vi="nvim"
-alias up="cm up"
+alias up="cm co; cm up"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
