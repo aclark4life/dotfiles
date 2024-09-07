@@ -18,6 +18,7 @@ bindkey '\t' expand-or-complete-prefix
 case `uname` in
   Darwin)
   osascript $HOME/.terminal_change_color.scpt
+  sh $HOME/.add_shortcuts_folder_to_dock.sh
   ;;
 esac
 
