@@ -29,7 +29,7 @@ source $HOME/.checkoutmanager.sh
 alias up="cm co; cm up"
 
 # -------------------------------------------------------------------------------- 
-# Alias python plugin functions to manage venvs
+# Aliases for omz python plugin functions
 alias v="mkv"
 alias s="vrun"
 
