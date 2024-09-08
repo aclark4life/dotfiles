@@ -69,3 +69,14 @@ if command -v aws &> /dev/null; then
     eval "$secret"
   fi
 fi
+
+# --------------------------------------------------------------------------------
+# Update all the things (checkoutmanager, brew, dnf)
+case `uname` in
+  Darwin)
+  alias upup="up && brew update && brew upgrade"
+  ;;
+  Linux)
+  alias upup="up && dnf update -y"
+  ;;
+esac
