@@ -53,7 +53,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 # --------------------------------------------------------------------------------
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # --------------------------------------------------------------------------------
 # Python Version Manager
