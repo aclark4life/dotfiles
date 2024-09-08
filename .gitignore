@@ -1,5 +1,3 @@
-checkoutmanager/*
-!checkoutmanager/cm.cfg
 ssh/*
 !ssh/config
 config/*
