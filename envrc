@@ -1,5 +1,5 @@
 # Loop through all files ending with rc in ~/.config/direnv and source them
-for rcfile in "$HOME/.config/direnv/"*rc; do
+for rcfile in "$HOME/.config/direnv/"*/envrc; do
   # Check if the file actually exists (to handle the case where no files match)
   if [[ -f "$rcfile" ]]; then
     source "$rcfile"
