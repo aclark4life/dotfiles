@@ -7,7 +7,7 @@ export PYTHON_VENV_NAME=.venv
 
 ZSH_THEME="random"
 
-plugins=(git python)
+plugins=(aliases direnv python)
 
 source $ZSH/oh-my-zsh.sh
 
