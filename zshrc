@@ -67,9 +67,5 @@ if command -v aws &> /dev/null; then
   secret=$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text 2> /dev/null)
   if [ $? -eq 0 ]; then
     eval "$secret"
-  else
-    # Optionally log an error quietly (e.g., to a log file or just ignore it)
-    # echo "Failed to load secrets from AWS Secrets Manager" >> /path/to/logfile
-    :
   fi
 fi
