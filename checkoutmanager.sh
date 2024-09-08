@@ -7,9 +7,6 @@ cm() {
     # Run checkoutmanager once with no arguments
     checkoutmanager
   else
-    # Run checkoutmanager with the provided command and configuration files
-    [ -f ~/.checkoutmanager.cfg ] && checkoutmanager "$cmd" -c ~/.checkoutmanager.cfg
-
     for cfg in ~/.config/checkoutmanager/*.cfg; do
       [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
     done
