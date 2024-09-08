@@ -80,3 +80,7 @@ case `uname` in
   alias upup="up && sudo dnf update -y"
   ;;
 esac
+
+# --------------------------------------------------------------------------------
+# Direnv
+export DIRENV_LOG_FORMAT=''
