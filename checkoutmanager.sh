@@ -13,5 +13,9 @@ cm() {
     for cfg in ~/.config/checkoutmanager/*.cfg; do
       [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
     done
+
+    for cfg in ~/.checkoutmanager/*.cfg; do
+      [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
+    done
   fi
 }
