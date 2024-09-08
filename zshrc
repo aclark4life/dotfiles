@@ -77,6 +77,6 @@ case `uname` in
   alias upup="up && brew update && brew upgrade"
   ;;
   Linux)
-  alias upup="up && dnf update -y"
+  alias upup="up && sudo dnf update -y"
   ;;
 esac
