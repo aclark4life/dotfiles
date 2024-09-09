@@ -96,3 +96,7 @@ esac
 # Direnv lite
 
 source $HOME/.direnv_lite.sh
+
+# --------------------------------------------------------------------------------
+# Sort env
+alias env="env | sort"
