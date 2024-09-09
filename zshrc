@@ -82,5 +82,5 @@ case `uname` in
 esac
 
 # --------------------------------------------------------------------------------
-# Direnv
-export DIRENV_LOG_FORMAT=''
+# Direnv lite
+source $HOME/.direnv_lite.sh
