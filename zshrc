@@ -13,12 +13,14 @@ source $ZSH/oh-my-zsh.sh
 
 # -------------------------------------------------------------------------------- 
 # Vi key bindings
+
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
 # -------------------------------------------------------------------------------- 
 # Configure Neovim as the default editor
+
 export EDITOR=nvim
 alias vi="nvim"
 
@@ -30,15 +32,18 @@ alias up="cm co; cm up"
 
 # -------------------------------------------------------------------------------- 
 # Aliases for omz python plugin functions
+
 alias v="mkv"
 alias s="vrun"
 
 # -------------------------------------------------------------------------------- 
 # RIP https://github.com/aclark4life/vanity
+
 alias stats="pypistats overall"
 
 # -------------------------------------------------------------------------------- 
 # Terminal colors and dock shortcuts
+
 case `uname` in
   Darwin)
   osascript $HOME/.terminal_change_color.scpt
@@ -48,21 +53,25 @@ esac
 
 # Homebrew
 # --------------------------------------------------------------------------------
+
 export HOMEBREW_NO_ENV_HINTS=1
 
 # --------------------------------------------------------------------------------
 # Node Version Manager
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # --------------------------------------------------------------------------------
 # Python Version Manager
+
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # --------------------------------------------------------------------------------
 # Load environment variables from a secret manager quietly
+
 if command -v aws &> /dev/null; then
   secret=$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query SecretString --output text 2> /dev/null)
   if [ $? -eq 0 ]; then
@@ -72,6 +81,7 @@ fi
 
 # --------------------------------------------------------------------------------
 # Update all the things (checkoutmanager, brew, dnf)
+
 case `uname` in
   Darwin)
   alias upup="up && brew update && brew upgrade"
@@ -83,4 +93,5 @@ esac
 
 # --------------------------------------------------------------------------------
 # Direnv lite
+
 source $HOME/.direnv_lite.sh
