@@ -23,12 +23,11 @@ direnv() {
   relative_path="${current_dir#"$PROJECTS_DIR/"}"
   
   # Construct the path within the base directory
-  target_file="$BASE_DIR/$relative_path/$relative_path.txt"
+  target_file="$BASE_DIR/$relative_path/envrc"
   
   # Check if the file exists
   if [[ -f "$target_file" ]]; then
-    # Print the content of the file
-    cat "$target_file"
+    source "$target_file"
   fi
 }
 
