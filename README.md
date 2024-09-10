@@ -1,3 +1,5 @@
 # dotfiles
 
-My [dotfiles](https://github.com/jbernard/dotfiles) are public!
+[dotfiles](https://github.com/jbernard/dotfiles)
+
+My dotfiles are public!
