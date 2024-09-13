@@ -40,7 +40,7 @@ mkv () {
 # ================================================================================ 
 # RIP https://github.com/aclark4life/vanity
 
-alias stats="pypistats overall"
+alias o="pypistats overall"
 
 # ================================================================================ 
 # Terminal colors and dock shortcuts
