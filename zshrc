@@ -99,4 +99,16 @@ alias env="env | sort"
 
 # --------------------------------------------------------------------------------
 # Change to temp directory
-alias t="cd $(mktemp -d)"
+t() {
+  cd "$(mktemp -d)"
+}
+
+# --------------------------------------------------------------------------------
+# Roll our own mkv
+mkv () {
+  local name="${1:-$PYTHON_VENV_NAME}" 
+  local venvpath="${name:P}" 
+  uv venv "${name}" || return
+  echo "Created venv in '${venvpath}'" >&2
+  vrun "${name}"
+}
