@@ -74,17 +74,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # ================================================================================
-# Load environment variables from a secret manager quietly
-
-if command -v aws &> /dev/null; then
-  secret=$(aws secretsmanager get-secret-value --secret-id YOUR_SECRET_ID --query \
-	  SecretString --output text 2> /dev/null)
-  if [ $? -eq 0 ]; then
-    eval "$secret"
-  fi
-fi
-
-# ================================================================================
 # Update all the things (checkoutmanager, brew, dnf)
 
 source $HOME/.checkoutmanager.sh
