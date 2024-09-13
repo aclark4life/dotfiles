@@ -25,12 +25,6 @@ export EDITOR=nvim
 alias vi="nvim"
 
 # -------------------------------------------------------------------------------- 
-# Alias checkoutmanager.sh function calls
-
-source $HOME/.checkoutmanager.sh
-alias up="cm co; cm up"
-
-# -------------------------------------------------------------------------------- 
 # Aliases for omz python plugin functions
 
 alias v="mkv"
@@ -85,10 +79,10 @@ fi
 
 case `uname` in
   Darwin)
-  alias upup="up && brew update && brew upgrade"
+  alias u="cm co && cm up && brew update && brew upgrade"
   ;;
   Linux)
-  alias upup="up && sudo dnf update -y"
+  alias u="cm co && cm up && sudo dnf update -y"
   ;;
 esac
 
