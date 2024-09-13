@@ -93,9 +93,9 @@ export HOMEBREW_NO_ENV_HINTS=1
 source $HOME/.direnv_lite.sh
 
 # ================================================================================
-# Sort env
+# Sorted env
 
-alias env="env | sort"
+alias e="env | sort"
 
 # ================================================================================
 # Change to temp directory
