@@ -12,7 +12,7 @@ plugins=(aliases git python)
 source $ZSH/oh-my-zsh.sh
 
 # ================================================================================ 
-# Configure vi key bindings, vi alias and use neovim as the default editor
+# Configure vi key bindings, vi alias and neovim as the default editor
 
 alias vi="nvim"
 
