@@ -23,13 +23,12 @@ bindkey '\t' expand-or-complete-prefix
 export EDITOR=nvim
 
 # ================================================================================ 
-# Aliases for omz python plugin functions
+# Aliases for omz python plugin functions and custom mkv function
+# based on omz python plugin that uses uv instead of venv
 
 alias v="mkv"
 alias s="vrun"
 
-# --------------------------------------------------------------------------------
-# Custom mkv function based on omz python plugin that uses uv instead of venv
 mkv () {
   local name="${1:-$PYTHON_VENV_NAME}" 
   local venvpath="${name:P}" 
