@@ -12,17 +12,15 @@ plugins=(aliases git python)
 source $ZSH/oh-my-zsh.sh
 
 # ================================================================================ 
-# Vi key bindings
+# Configure vi key bindings, vi alias and use neovim as the default editor
+
+alias vi="nvim"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
-# ================================================================================ 
-# Configure Neovim as the default editor
-
 export EDITOR=nvim
-alias vi="nvim"
 
 # ================================================================================ 
 # Aliases for omz python plugin functions
