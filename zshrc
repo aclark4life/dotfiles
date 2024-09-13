@@ -55,11 +55,6 @@ case `uname` in
   ;;
 esac
 
-# Homebrew
-# ================================================================================
-
-export HOMEBREW_NO_ENV_HINTS=1
-
 # ================================================================================
 # Node Version Manager
 
@@ -87,6 +82,14 @@ case `uname` in
   ;;
 esac
 
+# --------------------------------------------------------------------------------
+# HOMEBREW_NO_ENV_HINTS
+#
+# If set, do not print any hints about changing Homebrew’s behaviour with
+# environment variables.
+
+export HOMEBREW_NO_ENV_HINTS=1
+
 # ================================================================================
 # Direnv lite
 
@@ -94,10 +97,12 @@ source $HOME/.direnv_lite.sh
 
 # ================================================================================
 # Sort env
+
 alias env="env | sort"
 
 # ================================================================================
 # Change to temp directory
+
 t() {
   cd "$(mktemp -d)"
 }
