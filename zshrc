@@ -77,6 +77,8 @@ fi
 # --------------------------------------------------------------------------------
 # Update all the things (checkoutmanager, brew, dnf)
 
+source $HOME/.checkoutmanager.sh
+
 case `uname` in
   Darwin)
   alias u="cm co && cm up && brew update && brew upgrade"
