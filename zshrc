@@ -53,13 +53,10 @@ case `uname` in
 esac
 
 # ================================================================================
-# Node Version Manager
+# Node and Python Version Managers
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# ================================================================================
-# Python Version Manager
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -79,7 +76,6 @@ case `uname` in
   ;;
 esac
 
-# --------------------------------------------------------------------------------
 # HOMEBREW_NO_ENV_HINTS
 #
 # If set, do not print any hints about changing Homebrew’s behaviour with
