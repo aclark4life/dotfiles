@@ -12,6 +12,16 @@ plugins=(aliases git python)
 
 source $ZSH/oh-my-zsh.sh
 
+# --------------------------------------------------------------------------------
+# Vi config
+
+bindkey -v
+bindkey '^r' history-incremental-search-backward
+bindkey '\t' expand-or-complete-prefix
+
+alias vi="nvim"
+export EDITOR="nvim"
+
 # ================================================================================ 
 # Terminal colors and dock shortcuts and configure direnv_lite and checkoutmanager
 
