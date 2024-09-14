@@ -1,3 +1,0 @@
-# https://docs.python.org/3/library/readline.html#module-readline
-python:bind -v
-python:bind ^I rl_complete
