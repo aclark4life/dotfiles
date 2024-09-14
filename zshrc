@@ -1,9 +1,10 @@
 # ================================================================================ 
-# Oh My Zsh and Homebrew configuration
+# Oh My Zsh and Homebrew and Python configuration
 
 export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
+export PYTHONSTARTUP=$HOME/.pythonrc
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="random"
