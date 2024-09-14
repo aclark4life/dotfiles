@@ -76,8 +76,6 @@ case `uname` in
   ;;
 esac
 
-# HOMEBREW_NO_ENV_HINTS
-#
 # If set, do not print any hints about changing Homebrew’s behaviour with
 # environment variables.
 
