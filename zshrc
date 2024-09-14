@@ -1,9 +1,10 @@
 # ================================================================================ 
-# Oh My Zsh configuration
+# Oh My Zsh and Homebrew configuration
 
-export ZSH="$HOME/.oh-my-zsh"
+export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="random"
 
@@ -12,15 +13,28 @@ plugins=(aliases git python)
 source $ZSH/oh-my-zsh.sh
 
 # ================================================================================ 
-# Configure vi key bindings, vi alias and neovim as the default editor
+# Terminal colors and dock shortcuts and configure direnv_lite and checkoutmanager
 
-alias vi="nvim"
+case `uname` in
+  Darwin)
+  osascript $HOME/.terminal_change_color.scpt
+  sh $HOME/.add_shortcuts_folder_to_dock.sh
+  source $HOME/.checkoutmanager.sh
+  source $HOME/.direnv_lite.sh
+  ;;
+esac
 
-bindkey -v
-bindkey '^r' history-incremental-search-backward
-bindkey '\t' expand-or-complete-prefix
+# ================================================================================
+# Alias to update git clones && homebrew || dnf
 
-export EDITOR=nvim
+case `uname` in
+  Darwin)
+  alias u="cm co && cm up && brew update && brew upgrade"
+  ;;
+  Linux)
+  alias u="cm co && cm up && sudo dnf update -y"
+  ;;
+esac
 
 # ================================================================================ 
 # Aliases for omz python plugin functions and custom mkv function
@@ -37,21 +51,6 @@ mkv () {
   vrun "${name}"
 }
 
-# ================================================================================ 
-# RIP https://github.com/aclark4life/vanity
-
-alias o="pypistats overall"
-
-# ================================================================================ 
-# Terminal colors and dock shortcuts
-
-case `uname` in
-  Darwin)
-  osascript $HOME/.terminal_change_color.scpt
-  sh $HOME/.add_shortcuts_folder_to_dock.sh
-  ;;
-esac
-
 # ================================================================================
 # Node and Python Version Managers
 
@@ -63,37 +62,18 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # ================================================================================
-# Update all the things (checkoutmanager, brew, dnf)
+# Function to create temp directory and cd into it
 
-source $HOME/.checkoutmanager.sh
+t() {
+  cd "$(mktemp -d)"
+}
 
-case `uname` in
-  Darwin)
-  alias u="cm co && cm up && brew update && brew upgrade"
-  ;;
-  Linux)
-  alias u="cm co && cm up && sudo dnf update -y"
-  ;;
-esac
+# ================================================================================ 
+# RIP https://github.com/aclark4life/vanity
 
-# If set, do not print any hints about changing Homebrew’s behaviour with
-# environment variables.
-
-export HOMEBREW_NO_ENV_HINTS=1
-
-# ================================================================================
-# Direnv lite
-
-source $HOME/.direnv_lite.sh
+alias o="pypistats overall"
 
 # ================================================================================
 # Sorted env
 
 alias e="env | sort"
-
-# ================================================================================
-# Change to temp directory
-
-t() {
-  cd "$(mktemp -d)"
-}
