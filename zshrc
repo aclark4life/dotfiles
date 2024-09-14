@@ -1,10 +1,8 @@
 # ================================================================================ 
-# Oh My Zsh and Homebrew and Python configuration
 
 export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
-export PYTHONSTARTUP=$HOME/.pythonrc
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="random"
@@ -13,18 +11,12 @@ plugins=(aliases git python)
 
 source $ZSH/oh-my-zsh.sh
 
-# --------------------------------------------------------------------------------
-# Vi config
-
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
 alias vi="nvim"
 export EDITOR="nvim"
-
-# ================================================================================ 
-# Terminal colors and dock shortcuts and configure direnv_lite and checkoutmanager
 
 case `uname` in
   Darwin)
@@ -35,9 +27,6 @@ case `uname` in
   ;;
 esac
 
-# ================================================================================
-# Alias to update git clones && homebrew || dnf
-
 case `uname` in
   Darwin)
   alias u="cm co && cm up && brew update && brew upgrade"
@@ -46,10 +35,6 @@ case `uname` in
   alias u="cm co && cm up && sudo dnf update -y"
   ;;
 esac
-
-# ================================================================================ 
-# Aliases for omz python plugin functions and custom mkv function
-# based on omz python plugin that uses uv instead of venv
 
 alias v="mkv"
 alias s="vrun"
@@ -62,9 +47,6 @@ mkv () {
   vrun "${name}"
 }
 
-# ================================================================================
-# Node and Python Version Managers
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
@@ -72,19 +54,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# ================================================================================
-# Function to create temp directory and cd into it
-
 t() {
   cd "$(mktemp -d)"
 }
 
-# ================================================================================ 
-# RIP https://github.com/aclark4life/vanity
-
 alias o="pypistats overall"
-
-# ================================================================================
-# Sorted env
-
 alias e="env | sort"
