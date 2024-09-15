@@ -1,6 +1,7 @@
 alias o="pypistats overall"
 alias e="env | sort"
 alias v="mkv"
+alias vi="nvim"
 alias s="vrun"
 
 case `uname` in

@@ -4,14 +4,10 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="random"
 
-# Would you like to use another custom folder than $ZSH/custom?
+# Would you like to use another custom folder than $ZSH/custom? Yes.
 ZSH_CUSTOM=$HOME/.custom
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Add plugins wisely, as too many plugins slow down shell startup.
 plugins=(aliases git python)
 
 export PYTHON_AUTO_VRUN=true
@@ -25,6 +21,8 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
+export EDITOR="nvim"
+
 export HOMEBREW_NO_ENV_HINTS=1
 
 export NVM_DIR="$HOME/.nvm"
@@ -34,13 +32,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export EDITOR="nvim"
-
 # users are encouraged to define aliases within a top-level file in
 # the $ZSH_CUSTOM folder, with .zsh extension.
-
-alias vi="nvim"
-
 
 case `uname` in
   Darwin)
