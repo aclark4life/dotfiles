@@ -14,6 +14,9 @@ ZSH_CUSTOM=$HOME/.config/zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(aliases git python)
 
+export PYTHON_AUTO_VRUN=true
+export PYTHON_VENV_NAME=.venv
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -23,8 +26,6 @@ bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
 export HOMEBREW_NO_ENV_HINTS=1
-export PYTHON_AUTO_VRUN=true
-export PYTHON_VENV_NAME=.venv
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
