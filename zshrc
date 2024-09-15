@@ -56,6 +56,6 @@ case `uname` in
   ;;
 esac
 
-t() {
+t () {
   cd "$(mktemp -d)"
 }
