@@ -51,6 +51,5 @@ mkv () {
 case `uname` in
   Darwin)
   osascript $HOME/.terminal_change_color.scpt
-  source $HOME/.direnv_lite.sh
   ;;
 esac
