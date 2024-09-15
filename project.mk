@@ -3,5 +3,5 @@
 
 PROJECT_NAME := dotfiles
 
-edit:
-	$(EDITOR) zshrc
+# edit:
+# 	$(EDITOR) zshrc
