@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="random"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/.config/zsh
+ZSH_CUSTOM=$HOME/.custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
