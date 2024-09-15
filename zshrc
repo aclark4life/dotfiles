@@ -1,7 +1,3 @@
-bindkey -v
-bindkey '^r' history-incremental-search-backward
-bindkey '\t' expand-or-complete-prefix
-
 export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
@@ -59,3 +55,7 @@ esac
 t () {
   cd "$(mktemp -d)"
 }
+
+bindkey -v
+bindkey '^r' history-incremental-search-backward
+bindkey '\t' expand-or-complete-prefix
