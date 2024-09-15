@@ -9,7 +9,8 @@ config/nvim/*
 !config/zsh/
 config/zsh/*
 !config/zsh/add_shortcuts_folder_to_dock.zsh
-!config/zsh/custom.zsh
+!config/zsh/aliases.zsh
+!config/zsh/functions.zsh
 server/*
 !server/server.*
 .DS_Store

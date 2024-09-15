@@ -11,7 +11,3 @@ case `uname` in
   alias u="cm co && cm up && sudo dnf update -y"
   ;;
 esac
-
-t () {
-  cd "$(mktemp -d)"
-}
