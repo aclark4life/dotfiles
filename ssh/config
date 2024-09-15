@@ -1,2 +1,3 @@
+# Move id_<algorithm>* to id*
 Host *
     IdentityFile ~/.ssh/id
