@@ -1,7 +1,30 @@
+# Path to your Oh My Zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="random"
+
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(aliases git python)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+bindkey -v
+bindkey '^r' history-incremental-search-backward
+bindkey '\t' expand-or-complete-prefix
+
 export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
-export ZSH="$HOME/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -10,11 +33,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-ZSH_THEME="random"
+export EDITOR="nvim"
 
-plugins=(aliases git python)
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension.
 
-source $ZSH/oh-my-zsh.sh
+alias vi="nvim"
 
 mkv () {
   local name="${1:-$PYTHON_VENV_NAME}" 
@@ -24,9 +48,6 @@ mkv () {
   vrun "${name}"
 }
 
-alias vi="nvim"
-export EDITOR="nvim"
-
 case `uname` in
   Darwin)
   osascript $HOME/.terminal_change_color.scpt
@@ -35,8 +56,6 @@ case `uname` in
   source $HOME/.direnv_lite.sh
   ;;
 esac
-
-# Single character aliases and functions
 
 alias o="pypistats overall"
 alias e="env | sort"
@@ -55,7 +74,3 @@ esac
 t () {
   cd "$(mktemp -d)"
 }
-
-bindkey -v
-bindkey '^r' history-incremental-search-backward
-bindkey '\t' expand-or-complete-prefix
