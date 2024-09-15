@@ -3,7 +3,6 @@ checkoutmanager/*
 ssh/*
 !ssh/config
 config/*
-config/nvim/init.vim
 server/*
 !server/server.*
 .DS_Store
