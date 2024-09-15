@@ -34,9 +34,12 @@ eval "$(pyenv init -)"
 
 # users are encouraged to define aliases within a top-level file in
 # the $ZSH_CUSTOM folder, with .zsh extension.
-
-case `uname` in
-  Darwin)
-  osascript $HOME/.terminal_change_color.scpt
-  ;;
-esac
+# 
+# custom
+# ├── add_shortcuts_folder_to_dock.zsh
+# ├── aliases.zsh
+# ├── direnv.zsh
+# ├── functions.zsh
+# └── terminal_change_color.zsh
+# 
+# 1 directory, 5 files
