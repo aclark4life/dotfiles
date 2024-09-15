@@ -1,8 +1,6 @@
 # dotfiles
 
-[Managed with [dotfiles](https://github.com/jbernard/dotfiles)]
-
-My dotfiles are public!
+My dotfiles are public! Managed with [dotfiles](https://github.com/jbernard/dotfiles).
 
 ```
 .
