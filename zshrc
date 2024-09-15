@@ -35,6 +35,7 @@ eval "$(pyenv init -)"
 # aliases and functions defined in files in
 # the $ZSH_CUSTOM folder with .zsh extension.
 # 
+# custom/
 # ├── add_shortcuts_folder_to_dock.zsh
 # ├── aliases.zsh
 # ├── direnv.zsh
