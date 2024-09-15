@@ -8,6 +8,7 @@ config/nvim/*
 !config/nvim/init.vim
 !config/zsh/
 config/zsh/*
+!config/zsh/add_shortcuts_folder_to_dock.zsh
 !config/zsh/custom.zsh
 server/*
 !server/server.*
