@@ -4,6 +4,7 @@
 
 My dotfiles are public!
 
+```
 .
 ├── LICENSE.txt
 ├── Makefile
@@ -38,3 +39,4 @@ My dotfiles are public!
 └── zshrc
 
 8 directories, 24 files
+```
