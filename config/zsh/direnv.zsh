@@ -1,3 +1,8 @@
+# direnv.zsh
+#
+# Similar to direnv, but load environment variables from envrc files outside
+# current directory.
+
 # Define the base directory
 BASE_DIR="$HOME/.config/direnv"
 
