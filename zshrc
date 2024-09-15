@@ -1,7 +1,18 @@
+bindkey -v
+bindkey '^r' history-incremental-search-backward
+bindkey '\t' expand-or-complete-prefix
+
 export HOMEBREW_NO_ENV_HINTS=1
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
 export ZSH="$HOME/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 ZSH_THEME="random"
 
@@ -9,9 +20,13 @@ plugins=(aliases git python)
 
 source $ZSH/oh-my-zsh.sh
 
-bindkey -v
-bindkey '^r' history-incremental-search-backward
-bindkey '\t' expand-or-complete-prefix
+mkv () {
+  local name="${1:-$PYTHON_VENV_NAME}" 
+  local venvpath="${name:P}" 
+  uv venv "${name}" || return
+  echo "Created venv in '${venvpath}'" >&2
+  vrun "${name}"
+}
 
 alias vi="nvim"
 export EDITOR="nvim"
@@ -25,6 +40,13 @@ case `uname` in
   ;;
 esac
 
+# Single character aliases and functions
+
+alias o="pypistats overall"
+alias e="env | sort"
+alias v="mkv"
+alias s="vrun"
+
 case `uname` in
   Darwin)
   alias u="cm co && cm up && brew update && brew upgrade"
@@ -34,27 +56,6 @@ case `uname` in
   ;;
 esac
 
-alias v="mkv"
-alias s="vrun"
-
-mkv () {
-  local name="${1:-$PYTHON_VENV_NAME}" 
-  local venvpath="${name:P}" 
-  uv venv "${name}" || return
-  echo "Created venv in '${venvpath}'" >&2
-  vrun "${name}"
-}
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 t() {
   cd "$(mktemp -d)"
 }
-
-alias o="pypistats overall"
-alias e="env | sort"
