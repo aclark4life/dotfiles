@@ -32,7 +32,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# aliases and functions defined in files in
+# Aliases and functions defined in files in
 # the $ZSH_CUSTOM folder with .zsh extension.
 # 
 # custom/
