@@ -3,7 +3,6 @@
 My dotfiles are public! Managed with [dotfiles](https://github.com/jbernard/dotfiles).
 
 ```
-.
 ├── LICENSE.txt
 ├── Makefile
 ├── README.md
@@ -35,6 +34,4 @@ My dotfiles are public! Managed with [dotfiles](https://github.com/jbernard/dotf
 ├── vimrc
 ├── zprofile
 └── zshrc
-
-8 directories, 24 files
 ```
