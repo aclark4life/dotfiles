@@ -23,6 +23,7 @@ function mkv () {
   uv venv "${name}" || return
   echo "Created venv in '${venvpath}'" >&2
   vrun "${name}"
+  python -m ensurepip
 }
 
 # Change to a temporary directory
