@@ -1,6 +1,5 @@
 checkoutmanager/*
 !checkoutmanager/checkoutmanager.cfg
-!checkoutmanager/*/checkoutmanager.cfg
 ssh/*
 !ssh/config
 config/*
