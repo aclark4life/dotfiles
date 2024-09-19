@@ -6,11 +6,11 @@ function cm () {
     # Run checkoutmanager once with no arguments
     checkoutmanager
   else
-    for cfg in ~/.config/checkoutmanager/*.cfg; do
+    for cfg in ~/.checkoutmanager/*.cfg; do
       [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
     done
 
-    for cfg in ~/.checkoutmanager/*.cfg; do
+    for cfg in ~/.checkoutmanager/*/*.cfg; do
       [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
     done
   fi
