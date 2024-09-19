@@ -1,0 +1,6 @@
+brew "coreutils"
+brew "just"
+brew "nvm"
+brew "pyenv"
+cask "firefox"
+cask "jumpcut"
