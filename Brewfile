@@ -3,6 +3,8 @@ brew "just"
 brew "neovim"
 brew "nvm"
 brew "pyenv"
+brew "xz"
+
 cask "firefox"
 # cask "google-chrome"
 cask "jumpcut"
