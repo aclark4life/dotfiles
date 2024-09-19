@@ -1,5 +1,6 @@
-alias o="pypistats overall"
 alias e="env | sort"
+alias k="ssh-keygen -t ed25519 -f ~/.ssh/id"
+alias o="pypistats overall"
 alias v="mkv"
 alias vi="nvim"
 alias s="vrun"
