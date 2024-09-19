@@ -3,6 +3,7 @@ brew "just"
 brew "neovim"
 brew "nvm"
 brew "pyenv"
+brew "uv"
 brew "xz"
 
 cask "firefox"
