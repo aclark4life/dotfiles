@@ -1,5 +1,6 @@
 brew "coreutils"
 brew "just"
+brew "neovim"
 brew "nvm"
 brew "pyenv"
 cask "firefox"
