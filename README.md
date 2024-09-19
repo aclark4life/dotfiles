@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles are public! Managed with [dotfiles](https://github.com/jbernard/dotfiles).
+My dotfiles are public! Managed with [dotfiles](https://github.com/jbernard/dotfiles). Used by [setup](https://github.com/aclark4life/setup).
 
 ```
 ├── LICENSE.txt
