@@ -1,6 +1,7 @@
 brew "cmake"
 brew "coreutils"
 brew "just"
+brew "libbs2b"
 brew "neovim"
 brew "nvm"
 brew "postgis"
