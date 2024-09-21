@@ -1,6 +1,8 @@
 brew "cmake"
 brew "coreutils"
+brew "go-task"
 brew "just"
+brew "mongosh"
 brew "neovim"
 brew "nvm"
 brew "postgis"
