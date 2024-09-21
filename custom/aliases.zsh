@@ -1,5 +1,7 @@
 alias e="env | sort"
 alias k="ssh-keygen -t ed25519 -f ~/.ssh/id"
+alias ml="mongo-launch"
+alias mo="mongo-orchestration"
 alias o="pypistats overall"
 alias v="mkv"
 alias vi="nvim"
