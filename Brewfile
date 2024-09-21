@@ -6,7 +6,6 @@ brew "nvm"
 brew "postgis"
 brew "postgresql@14"
 brew "pyenv"
-brew "uv"
 brew "wget"
 brew "xz"
 
