@@ -1,5 +1,6 @@
 brew "cmake"
 brew "coreutils"
+brew "gdal"
 brew "go-task"
 brew "just"
 brew "mongosh"
