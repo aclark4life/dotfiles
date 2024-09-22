@@ -12,7 +12,7 @@ brew "pyenv"
 brew "tree"
 brew "wget"
 brew "xz"
-
 cask "firefox"
 # cask "google-chrome"
 cask "jumpcut"
+cask "xquartz"
