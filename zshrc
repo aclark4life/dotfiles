@@ -13,6 +13,8 @@ plugins=(aliases git python)
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
 
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
