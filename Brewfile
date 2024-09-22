@@ -9,6 +9,7 @@ brew "nvm"
 brew "postgis"
 brew "postgresql@14"
 brew "pyenv"
+brew "tree"
 brew "wget"
 brew "xz"
 
