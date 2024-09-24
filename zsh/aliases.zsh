@@ -6,6 +6,7 @@ alias o="pypistats overall"
 alias v="mkv"
 alias vi="nvim"
 alias s="vrun"
+alias st="gst"
 
 case `uname` in
   Darwin)
