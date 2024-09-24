@@ -33,13 +33,3 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Aliases and functions defined in files in
-# the $ZSH_CUSTOM folder with .zsh extension.
-# 
-# custom/
-# ├── add_shortcuts_folder_to_dock.zsh
-# ├── aliases.zsh
-# ├── direnv.zsh
-# ├── functions.zsh
-# └── terminal_change_color.zsh
