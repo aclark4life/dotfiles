@@ -7,6 +7,7 @@ function cm () {
     # Run checkoutmanager once with no arguments
     checkoutmanager
   else
+    checkoutmanager "$cmd"
     # Run checkoutmanager with -c $cfg
     [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
   fi
