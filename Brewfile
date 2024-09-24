@@ -1,17 +1,18 @@
+# Brew formula
 brew "cmake"
 brew "coreutils"
 brew "gdal"
-brew "go-task"
-brew "just"
 brew "mongosh"
 brew "neovim"
 brew "nvm"
 brew "postgis"
-brew "postgresql@14"
+brew "postgresql"
 brew "pyenv"
 brew "tree"
 brew "wget"
 brew "xz"
+
+# Brew cask
 cask "firefox"
 # cask "google-chrome"
 cask "jumpcut"
