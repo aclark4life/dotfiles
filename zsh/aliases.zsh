@@ -7,6 +7,7 @@ alias v="mkv"
 alias vi="nvim"
 alias s="vrun"
 alias st="gst"
+alias fp="gpf"
 
 case `uname` in
   Darwin)
