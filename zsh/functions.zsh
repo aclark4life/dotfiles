@@ -1,18 +1,14 @@
 # Load the checkoutmanager configuration files found in ~/.config/checkoutmanager
 function cm () {
   local cmd=$1
+  local cfg=~/.config/checkoutmanager/checkoutmanager.cfg
 
   if [ -z "$cmd" ]; then
     # Run checkoutmanager once with no arguments
     checkoutmanager
   else
-    for cfg in ~/.checkoutmanager/*.cfg; do
-      [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
-    done
-
-    for cfg in ~/.checkoutmanager/*/*.cfg; do
-      [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
-    done
+    # Run checkoutmanager with -c $cfg
+    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
   fi
 }
 
