@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="random"
 
 # Would you like to use another custom folder than $ZSH/custom? Yes.
-ZSH_CUSTOM=$HOME/.custom
+ZSH_CUSTOM=$HOME/.zsh
 
 # Add plugins wisely, as too many plugins slow down shell startup.
 plugins=(aliases git python)
