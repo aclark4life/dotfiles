@@ -23,6 +23,12 @@
 
 - Set the default region.
 
+## `config/`
+
+### `nvim/`
+
+#### `init.vim`
+
 ## Tree
 
 ```
@@ -32,8 +38,6 @@
 │   ├── config
 ├── checkoutmanager.cfg
 ├── config
-│   ├── gh
-│   ├── github-copilot
 │   └── nvim
 ├── dotfilesrc
 ├── inputrc
