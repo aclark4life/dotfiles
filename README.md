@@ -1,16 +1,35 @@
 # dotfiles
 
-My dotfiles are public! Managed with [dotfiles](https://github.com/jbernard/dotfiles). Used by [setup](https://github.com/aclark4life/setup).
+> "My dotfiles are public!" —Alex
+
+- Managed with [dotfiles](https://github.com/jbernard/dotfiles).
+- Used by [setup](https://github.com/aclark4life/setup).
+
+## Table of Contents
+- [Brewfile](#brewfile)
+- [AWS](#aws)
+- [Tree](#tree)
+
+## `Brewfile`
+
+- Brew formulas and casks installed with [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L12-L19)
+
+## `aws/`
+
+- No `credentials` file.
+- Credentials set per-directory via [`direnv`](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh)
+
+### `config`
+
+- Set the default region.
+
+## Tree
 
 ```
 .
 ├── Brewfile
-├── LICENSE.txt
-├── Makefile
-├── README.md
 ├── aws
 │   ├── config
-│   └── credentials
 ├── checkoutmanager.cfg
 ├── config
 │   ├── gh
