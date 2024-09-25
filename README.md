@@ -8,6 +8,7 @@
 ## Table of Contents
 - [Brewfile](#brewfile)
 - [AWS](#aws)
+    - [config](#config)
 - [Tree](#tree)
 
 ## `Brewfile`
