@@ -20,7 +20,7 @@ function mkv () {
   uv venv "${name}" || return
   echo "Created venv in '${venvpath}'" >&2
   python -m ensurepip
-  pushd "${venvpath}/bin" > /dev/null && ln -sv pip3 pip && popd > /dev/null
+  pushd "${venvpath}/bin" > /dev/null && ln -sv pip3 ./pip && popd > /dev/null
   vrun "${name}"
 }
 
