@@ -1,4 +1,4 @@
-# Brew formula
+# Formulas
 brew "cmake"
 brew "coreutils"
 brew "gdal"
@@ -12,8 +12,9 @@ brew "tree"
 brew "wget"
 brew "xz"
 
-# Brew cask
+# Casks
 cask "firefox"
-# cask "google-chrome"
 cask "jumpcut"
 cask "xquartz"
+# cask "google-chrome"
+# cask "slack"
