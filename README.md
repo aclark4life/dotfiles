@@ -9,6 +9,8 @@
 - [Brewfile](#brewfile)
 - [AWS](#aws)
     - [config](#config)
+- [config](#config-1)
+    - [nvim](#nvim)
 - [Tree](#tree)
 
 ## `Brewfile`
