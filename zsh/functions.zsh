@@ -23,9 +23,9 @@ function mkv () {
   local venvpath="${name:P}" 
   uv venv "${name}" || return
   echo "Created venv in '${venvpath}'" >&2
+  vrun "${name}"
   python -m ensurepip
   pushd "${venvpath}/bin" > /dev/null && ln -sv pip3 ./pip && popd > /dev/null
-  vrun "${name}"
 }
 
 # Change to a temporary directory
