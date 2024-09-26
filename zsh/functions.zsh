@@ -3,12 +3,16 @@ function cm () {
   local cmd=$1
   local cfg=~/.config/checkoutmanager/checkoutmanager.cfg
 
+  # Commit changes made in checkoutmanager directory
+  pushd `dirname $cfg`; make; popd
+
   if [ -z "$cmd" ]; then
     # Run checkoutmanager once with no arguments
     checkoutmanager
   else
+    # Run checkoutmanager with arguments
     checkoutmanager "$cmd"
-    # Run checkoutmanager with -c $cfg
+    # Run checkoutmanager with arguments and -c $cfg
     [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
   fi
 }
