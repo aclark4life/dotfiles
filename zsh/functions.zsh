@@ -26,6 +26,7 @@ function mkv () {
   vrun "${name}"
   python -m ensurepip
   pushd "${venvpath}/bin" > /dev/null && ln -sv pip3 ./pip && popd > /dev/null
+  vrun "${name}"
 }
 
 # Change to a temporary directory
