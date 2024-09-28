@@ -8,29 +8,28 @@
 ## Table of Contents
 - [Brewfile](#brewfile)
 - [AWS](#aws)
-    - [config](#config)
-- [config](#config-1)
-    - [nvim](#nvim)
+- [config](#config)
 - [Tree](#tree)
 
 ## `Brewfile`
 
-- Brew formulas and casks installed with [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L12-L19)
+- Contains brew formulas and casks.
+- Installed with [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20).
 
 ## `aws/`
 
-- No `credentials` file.
-- Credentials set per-directory via [`direnv`](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh)
+- No `aws/credentials` file.
+- Credentials set per-directory via [`direnv`](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh#L15-L37).
+- Set the default region in [aws/config](https://github.com/aclark4life/dotfiles/blob/main/aws/config).
 
-### `config`
+## `checkoutmanager.cfg`
 
-- Set the default region.
+- Contains repositories managed by [checkoutmanager](https://github.com/reinout/checkoutmanager).
+- Additional repositories managed in `.config/checkoutmanager/checkoutmanager.cfg` by [zsh/functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh#L1-L18).
 
 ## `config/`
 
-### `nvim/`
-
-#### `init.vim`
+- Disable mouse in [config/nvim/init.vim](https://github.com/aclark4life/dotfiles/blob/main/config/nvim/init.vim).
 
 ## Tree
 

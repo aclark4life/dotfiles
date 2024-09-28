@@ -15,8 +15,10 @@ brew "wget"
 brew "xz"
 
 # Casks
+cask "discord"
 cask "firefox"
 cask "jumpcut"
 cask "xquartz"
 # cask "google-chrome"
 # cask "slack"
+# cask "zoom"
