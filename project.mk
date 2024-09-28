@@ -1,7 +1,4 @@
-# Custom Makefile
-# Add your custom makefile commands here
+# Custom Makefile for Project Makefile
+# Add your custom Makefile commands here
 
 PROJECT_NAME := dotfiles
-
-# edit:
-# 	$(EDITOR) zshrc

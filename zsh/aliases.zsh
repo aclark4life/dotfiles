@@ -10,11 +10,12 @@ alias s="vrun"
 alias st="gst"
 alias fp="gpf"
 
+# Update repositories with `cm` function and update package managers with `brew` or `dnf`.
 case `uname` in
   Darwin)
   alias u="cm co && cm up && brew update && brew upgrade && brew bundle install --file=~/.Brewfile"
   ;;
   Linux)
-  alias u="cm co && cm up && sudo dnf update -y"
+  alias u="cm co && cm up && sudo dnf update -y" 
   ;;
 esac
