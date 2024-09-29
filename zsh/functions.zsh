@@ -36,7 +36,7 @@ function t () {
 
 # Function to install pipx packages from a file
 pipx_install_from_file() {
-  local file=~/.zsh/requirements.txt
+  local file=~/.requirements.txt
 
   # Check if the file exists
   if [[ ! -f "$file" ]]; then
