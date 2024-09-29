@@ -140,7 +140,7 @@
 
 ## [zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh)
 
-- Oh My Zsh User configuration.
+- Oh My Zsh user configuration.
 
     - [add_shortcuts_folder_to_dock.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/add_shortcuts_folder_to_dock.zsh)
     - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh)
