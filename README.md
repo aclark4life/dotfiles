@@ -18,6 +18,7 @@
 - [nvm](#nvm)
 - [pdbrc](#pdbrc)
 - [project.mk](#projectmk)
+- [requirements.txt](#requirementstxt)
 - [server](#server)
 - [ssh](#ssh)
 - [terminal_change_color.scpt](#terminal_change_colorscpt)
@@ -118,6 +119,11 @@
 ## [project.mk](https://github.com/aclark4life/dotfiles/blob/main/project.mk)
 
 - Ye Olde [Project Makefile](https://github.com/aclark4life/project-makefile).
+
+## [requirements.txt](https://github.com/aclark4life/dotfiles/blob/main/requirements.txt)
+
+- Contains Python packages.
+- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20) alias.
 
 ## [server](https://github.com/aclark4life/dotfiles/blob/main/server)
 
