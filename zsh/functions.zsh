@@ -33,3 +33,25 @@ function mkv () {
 function t () {
   cd "$(mktemp -d)"
 }
+
+# Function to install pipx packages from a file
+pipx_install_from_file() {
+  local file=~/.zsh/requirements.txt
+
+  # Check if the file exists
+  if [[ ! -f "$file" ]]; then
+    echo "Package list file '$file' not found!"
+    return 1
+  fi
+
+  # Install each package listed in the file
+  while IFS= read -r package || [[ -n "$package" ]]; do
+    # Skip empty lines or comments
+    [[ -z "$package" || "$package" == \#* ]] && continue
+
+    echo "Installing $package..."
+    pipx install "$package"
+  done < "$file"
+
+  echo "All packages installed!"
+}
