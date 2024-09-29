@@ -142,6 +142,12 @@
 
 - Oh My Zsh customizations.
 
+    - [add_shortcuts_folder_to_dock.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/add_shortcuts_folder_to_dock.zsh)
+    - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh)
+    - [direnv.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh)
+    - [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh)
+    - [terminal_change_color.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/terminal_change_color.zsh)
+
 ## [zshrc](https://github.com/aclark4life/dotfiles/blob/main/zshrc)
 
 - Oh My Zsh configuration.
