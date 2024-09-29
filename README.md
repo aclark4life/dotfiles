@@ -60,7 +60,6 @@
 │   ├── aliases.zsh
 │   ├── direnv.zsh
 │   ├── functions.zsh
-│   ├── requirements.txt
 │   ├── terminal_change_color.zsh
 │   └── variables.zsh
 └── zshrc
