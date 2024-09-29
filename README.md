@@ -177,7 +177,7 @@
 
 - MongoDB is installed by `m` which is installed by `npm` which is installed by `nvm` as described in [setup](https://github.com/aclark4life/setup?tab=readme-ov-file#nvm).
 - `mongo-orchestration` is installed by `pipx` and is aliased to `ml` and `mo` which are used to start and stop the MongoDB server and orchestration server respectively.
-- `mongosh` and `mongodb-atlas-cli` are installed by `brew`
+- `mongosh` and `mongodb-atlas-cli` are installed by `brew`.
 
 # Oh My Zsh
 
