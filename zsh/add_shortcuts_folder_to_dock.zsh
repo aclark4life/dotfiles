@@ -27,5 +27,5 @@ case `uname` in
 	    # Restart the Dock to apply changes
 	    killall Dock
 	fi
-	;;
+  ;;
 esac
