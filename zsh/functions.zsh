@@ -29,11 +29,6 @@ function mkv () {
   vrun "${name}"
 }
 
-# Change to a temporary directory
-function t () {
-  cd "$(mktemp -d)"
-}
-
 # Function to install pipx packages from a file
 pipx_install_from_file() {
   local file=~/.requirements.txt
@@ -58,4 +53,9 @@ pipx_install_from_file() {
   pipx upgrade-all
 
   echo "All packages updated!"
+}
+
+# Change to a temporary directory
+function t () {
+  cd "$(mktemp -d)"
 }
