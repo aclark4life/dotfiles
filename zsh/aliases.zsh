@@ -13,9 +13,9 @@ alias fp="gpf"
 # Update repositories with `cm` function and update package managers with `brew` or `dnf`.
 case `uname` in
   Darwin)
-  alias u="cm co && cm up && brew update && brew upgrade && brew bundle install --file=~/.Brewfile"
+  alias u="cm co && cm up && brew update && brew upgrade && brew bundle install --file=~/.Brewfile && pipx_install_from_file"
   ;;
   Linux)
-  alias u="cm co && cm up && sudo dnf update -y" 
+  alias u="cm co && cm up && sudo dnf update -y && pipx_install_from_file"
   ;;
 esac
