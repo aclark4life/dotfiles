@@ -54,4 +54,8 @@ pipx_install_from_file() {
   done < "$file"
 
   echo "All packages installed!"
+
+  pipx upgrade-all
+
+  echo "All packages upgraded!"
 }
