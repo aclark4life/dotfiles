@@ -19,6 +19,7 @@ cask "discord"
 cask "firefox"
 cask "jumpcut"
 cask "xquartz"
+## Sometimes these casks are already installed
 # cask "google-chrome"
 # cask "slack"
 # cask "zoom"
