@@ -59,10 +59,11 @@
 │   ├── aliases.zsh
 │   ├── direnv.zsh
 │   ├── functions.zsh
-│   └── terminal_change_color.zsh
+│   ├── terminal_change_color.zsh
+│   └── variables.zsh
 └── zshrc
 
-8 directories, 24 files
+8 directories, 25 files
 ```
 
 ## [Brewfile](https://github.com/aclark4life/dotfiles/blob/main/Brewfile)
