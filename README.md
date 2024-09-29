@@ -6,26 +6,36 @@
 - Used by [setup](https://github.com/aclark4life/setup).
 
 ## Table of Contents
-- [Brewfile](#brewfile)
-- [LICENSE.txt](#licensetxt)
-- [Makefile](#makefile)
-- [README.md](#readmemd)
-- [aws](#aws)
-- [checkoutmanager.cfg](#checkoutmanagercfg)
-- [config](#config)
-- [dotfilesrc](#dotfilesrc)
-- [inputrc](#inputrc)
-- [nvm](#nvm)
-- [pdbrc](#pdbrc)
-- [project.mk](#projectmk)
-- [requirements.txt](#requirementstxt)
-- [server](#server)
-- [ssh](#ssh)
-- [terminal_change_color.scpt](#terminal_change_colorscpt)
-- [vimrc](#vimrc)
-- [zprofile](#zprofile)
-- [zsh](#zsh)
-- [zshrc](#zshrc)
+
+- **Files and directories**
+
+  - [Brewfile](#brewfile)
+  - [LICENSE.txt](#licensetxt)
+  - [Makefile](#makefile)
+  - [README.md](#readmemd)
+  - [aws](#aws)
+  - [checkoutmanager.cfg](#checkoutmanagercfg)
+  - [config](#config)
+  - [dotfilesrc](#dotfilesrc)
+  - [inputrc](#inputrc)
+  - [nvm](#nvm)
+  - [pdbrc](#pdbrc)
+  - [project.mk](#projectmk)
+  - [requirements.txt](#requirementstxt)
+  - [server](#server)
+  - [ssh](#ssh)
+  - [terminal_change_color.scpt](#terminal_change_colorscpt)
+  - [vimrc](#vimrc)
+  - [zprofile](#zprofile)
+  - [zsh](#zsh)
+  - [zshrc](#zshrc)
+
+- **Description**
+
+  - [Checkout Manager](#checkout-manager)
+  - [MongoDB](#mongodb)
+  - [Oh My ZSH](#ohmyzsh)
+  - [Python](#python)
 
 ## Tree
 
@@ -105,7 +115,7 @@
 
 ## [inputrc](https://github.com/aclark4life/dotfiles/blob/main/inputrc)
 
-- Enable vi key bindings for readline in the Python interpreter.
+- Enable `vi` key bindings for Readline in the Python interpreter.
 
 ## [nvm](https://github.com/aclark4life/dotfiles/blob/main/nvm)
 
@@ -113,7 +123,7 @@
 
 ## [pdbrc](https://github.com/aclark4life/dotfiles/blob/main/pdbrc)
 
-- Configure vi key bindings in readline in pdb.
+- Configure `vi` key bindings in Readline in `pdb`.
 
 ## [project.mk](https://github.com/aclark4life/dotfiles/blob/main/project.mk)
 
@@ -121,8 +131,8 @@
 
 ## [requirements.txt](https://github.com/aclark4life/dotfiles/blob/main/requirements.txt)
 
-- Contains Python packages.
-- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20) alias.
+- Contains "pipx packages".
+- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20) alias and [`pipx_install_from_file`](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh#L33-L56) function.
 
 ## [server](https://github.com/aclark4life/dotfiles/blob/main/server)
 
@@ -158,3 +168,27 @@
 ## [zshrc](https://github.com/aclark4life/dotfiles/blob/main/zshrc)
 
 - Oh My Zsh configuration.
+
+# Checkout Manager
+
+- …
+
+# MongoDB
+
+- MongoDB is installed by `m` which is installed by `npm` which is installed by `nvm` as described in [setup](https://github.com/aclark4life/setup?tab=readme-ov-file#nvm).
+- `mongo-orchestration` is installed by `pipx` and is aliased to `ml` and `mo` which are used to start and stop the MongoDB server and orchestration server respectively.
+
+# Oh My Zsh
+
+- …
+
+# Python
+
+- Python is installed by `pyenv` which is installed by `brew`.
+- `pipx` is installed by `pip` which is installed by `pyenv`.
+- Additional Python packages used by all projects are installed by `pipx`.
+- Virtual environments are created by the `v` alias which is an alias for `mkv` which is provided by the Python plugin for Oh My Zsh.
+- `mkv` is further customized to use `uv` instead of `python -m venv`.
+- The Python plugin for Oh My Zsh includes the `PYTHON_AUTO_VRUN=true` setting!
+
+[Back to top](#dotfiles)
