@@ -148,6 +148,7 @@
     - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh)
     - [direnv.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh)
     - [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh)
+    - [requirements.txt](https://github.com/aclark4life/dotfiles/blob/main/zsh/requirements.txt)
     - [terminal_change_color.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/terminal_change_color.zsh)
 
 ## [zshrc](https://github.com/aclark4life/dotfiles/blob/main/zshrc)
