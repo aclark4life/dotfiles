@@ -1,3 +1,5 @@
+awscli
+awsebcli
 checkoutmanager
 dotfiles
 hatch
