@@ -10,6 +10,10 @@ ZSH_CUSTOM=$HOME/.zsh
 # Add plugins wisely, as too many plugins slow down shell startup.
 plugins=(aliases git python)
 
+# Python plugin settings
+export PYTHON_AUTO_VRUN=true
+export PYTHON_VENV_NAME=.venv
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

@@ -1,7 +1,3 @@
-# Python plugin settings
-export PYTHON_AUTO_VRUN=true
-export PYTHON_VENV_NAME=.venv
-
 # Brew command completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
