@@ -1,5 +1,5 @@
 alias b="gh browse"
-alias e="env | sort"
+alias e="env | sort | tac"
 alias k="ssh-keygen -t ed25519 -f ~/.ssh/id"
 alias ml="mongo-launch"
 alias mo="mongo-orchestration"
