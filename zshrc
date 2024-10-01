@@ -14,6 +14,9 @@ plugins=(aliases git python)
 export PYTHON_AUTO_VRUN=true
 export PYTHON_VENV_NAME=.venv
 
+export PIPX_ROOT="$HOME/.local"
+[[ -d $PIPX_ROOT/bin ]] && export PATH="$PIPX_ROOT/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
