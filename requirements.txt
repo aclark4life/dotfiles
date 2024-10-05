@@ -2,11 +2,8 @@ awscli
 awsebcli
 checkoutmanager
 dotfiles
-hatch
 mongo-orchestration
-pdm
 pre-commit
 pypistats
-pytest
 ruff
 uv
