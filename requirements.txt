@@ -1,6 +1,7 @@
 awscli
 awsebcli
 checkoutmanager
+djlint
 dotfiles
 mongo-orchestration
 pre-commit
