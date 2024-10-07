@@ -10,6 +10,7 @@ alias vi="nvim"
 alias s="vrun"
 alias st="gst"
 alias fp="gpf"
+alias gc="git commit -a && git push"
 
 # Update repositories with `cm` function and update package managers with `brew` or `dnf`.
 case `uname` in
