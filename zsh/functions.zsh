@@ -4,7 +4,7 @@ function cm () {
   local cfg=~/.config/checkoutmanager/checkoutmanager.cfg
 
   # Commit changes made in checkoutmanager directory
-  pushd `dirname $cfg`; git commit -m "Update" && git push > /dev/null 2>&1; popd
+  pushd `dirname $cfg`; git commit -a -m "Update" && git push > /dev/null 2>&1; popd
 
   if [ -z "$cmd" ]; then
     # Run checkoutmanager once with no arguments
