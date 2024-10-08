@@ -2,6 +2,7 @@
 brew "cmake"
 brew "coreutils"
 brew "gdal"
+brew "libmemcached"
 brew "mongosh"
 brew "mongo-c-driver"
 brew "mongodb-atlas"
