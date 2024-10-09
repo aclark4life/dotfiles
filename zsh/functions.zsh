@@ -1,7 +1,7 @@
-# Load the checkoutmanager configuration files found in ~/.config/checkoutmanager
+# Load the checkoutmanager configuration files found in ~/.checkoutmanager
 function cm () {
   local cmd=$1
-  local cfg=~/.config/checkoutmanager/checkoutmanager.cfg
+  local cfg=~/.checkoutmanager/checkoutmanager.cfg
 
   # Commit changes made in checkoutmanager directory
   pushd `dirname $cfg`; git commit -a -m "Update" && git push > /dev/null 2>&1; popd
