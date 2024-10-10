@@ -1,4 +1,5 @@
 # Formulas
+brew "act"
 brew "cmake"
 brew "coreutils"
 brew "gdal"
