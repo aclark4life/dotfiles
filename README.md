@@ -24,7 +24,7 @@
   - [requirements.txt](#requirementstxt)
   - [server](#server)
   - [ssh](#ssh)
-  - [terminal_change_color.scpt](#terminal_change_colorscpt)
+  - [terminal-background-color.scpt](#terminal-background-color)
   - [vimrc](#vimrc)
   - [zprofile](#zprofile)
   - [oh-my-zsh-custom](#oh-my-zsh-custom)
@@ -62,7 +62,7 @@
 │   └── server.vncloc
 ├── ssh
 │   └── config
-├── terminal_change_color.scpt
+├── terminal-background-color.scpt
 ├── vimrc
 ├── zprofile
 ├── oh-my-zsh-custom
@@ -141,9 +141,9 @@
 - Configure ssh identity in [ssh/config](https://github.com/aclark4life/dotfiles/blob/main/ssh/config).
 - Create identity file with [k](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L3).
 
-## [terminal_change_color.scpt](https://github.com/aclark4life/dotfiles/blob/main/terminal_change_color.scpt)
+## [terminal-background-color.scpt](https://github.com/aclark4life/dotfiles/blob/main/terminal-background-color.scpt)
 
-- Picks a random theme for Terminal.app, managed by Oh My ZSH in [terminal_change_color.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/terminal_change_color.zsh).
+- Picks a random theme for Terminal.app, managed by Oh My ZSH in [terminal-background-color.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/terminal-background-color.zsh).
 
 ## [vimrc](https://github.com/aclark4life/dotfiles/blob/main/vimrc)
 

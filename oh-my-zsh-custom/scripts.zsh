@@ -30,6 +30,6 @@ esac
 
 case `uname` in
   Darwin)
-  osascript $HOME/.terminal_change_color.scpt
+  osascript $HOME/.terminal-background-color.scpt
   ;;
 esac
