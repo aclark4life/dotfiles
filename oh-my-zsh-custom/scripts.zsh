@@ -1,5 +1,3 @@
-#!/bin/bash
-
 case `uname` in
   Darwin)
 	# Define the dock path (formerly folder path) you want to add to the Dock
@@ -27,5 +25,11 @@ case `uname` in
 	    # Restart the Dock to apply changes
 	    killall Dock
 	fi
+  ;;
+esac
+
+case `uname` in
+  Darwin)
+  osascript $HOME/.terminal_change_color.scpt
   ;;
 esac
