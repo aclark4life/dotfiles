@@ -8,3 +8,4 @@ set softtabstop=4
 autocmd BufRead,BufNewFile Makefile* set filetype=make
 autocmd BufRead,BufNewFile *.mk set filetype=make
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
+autocmd FileType just setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
