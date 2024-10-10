@@ -27,7 +27,7 @@
   - [terminal_change_color.scpt](#terminal_change_colorscpt)
   - [vimrc](#vimrc)
   - [zprofile](#zprofile)
-  - [zsh](#zsh)
+  - [oh-my-zsh-custom](#oh-my-zsh-custom)
   - [zshrc](#zshrc)
 
 - **Description**
@@ -65,12 +65,10 @@
 ├── terminal_change_color.scpt
 ├── vimrc
 ├── zprofile
-├── zsh
-│   ├── add_shortcuts_folder_to_dock.zsh
+├── oh-my-zsh-custom
 │   ├── aliases.zsh
-│   ├── direnv.zsh
 │   ├── functions.zsh
-│   ├── terminal_change_color.zsh
+│   ├── scripts.zsh
 │   └── variables.zsh
 └── zshrc
 
@@ -155,15 +153,14 @@
 
 - Login shell configuration.
 
-## [zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh)
+## [oh-my-zsh-custom](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom)
 
-- Oh My Zsh user configuration.
+- Oh My Zsh customizations.
 
-    - [add_shortcuts_folder_to_dock.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/add_shortcuts_folder_to_dock.zsh)
     - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh)
-    - [direnv.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh)
     - [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh)
-    - [terminal_change_color.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/terminal_change_color.zsh)
+    - [scripts.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/scripts.zsh)
+    - [variables.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/variables.zsh)
 
 ## [zshrc](https://github.com/aclark4life/dotfiles/blob/main/zshrc)
 
