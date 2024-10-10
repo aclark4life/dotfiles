@@ -24,7 +24,7 @@
   - [requirements.txt](#requirementstxt)
   - [server](#server)
   - [ssh](#ssh)
-  - [terminal-background-color.scpt](#terminal-background-color.scpt)
+  - [terminal-background-color.scpt](#terminal-background-colorscpt)
   - [vimrc](#vimrc)
   - [zprofile](#zprofile)
   - [oh-my-zsh-custom](#oh-my-zsh-custom)
