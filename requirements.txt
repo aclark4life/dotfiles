@@ -3,6 +3,7 @@ awsebcli
 checkoutmanager
 djlint
 dotfiles
+pipdeptree
 mongo-orchestration
 pre-commit
 pypistats
