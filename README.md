@@ -98,13 +98,13 @@
 ## [aws](https://github.com/aclark4life/dotfiles/blob/main/aws)
 
 - No `aws/credentials` file here.
-- Credentials are set per-directory via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh).
+- Credentials are set per-directory via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh).
 - Set the default region in [aws/config](https://github.com/aclark4life/dotfiles/blob/main/aws/config).
 
 ## [checkoutmanager.cfg](https://github.com/aclark4life/dotfiles/blob/main/checkoutmanager.cfg)
 
 - Contains repositories managed by [checkoutmanager](https://github.com/reinout/checkoutmanager).
-- Additional repositories found in `.config/checkoutmanager/checkoutmanager.cfg` will be managed by [zsh/functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh#L1-L18).
+- Additional repositories found in `.config/checkoutmanager/checkoutmanager.cfg` will be managed by [oh-my-zsh-custom/functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh#L1-L18).
 
 ## [config](https://github.com/aclark4life/dotfiles/blob/main/config)
 
@@ -128,7 +128,7 @@
 
 ## [package.json](https://github.com/aclark4life/dotfiles/blob/main/package.json)
 
-- `npm install -g` via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh).
+- `npm install -g` via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh).
 
 ## [project.mk](https://github.com/aclark4life/dotfiles/blob/main/project.mk)
 
@@ -137,7 +137,7 @@
 ## [requirements.txt](https://github.com/aclark4life/dotfiles/blob/main/requirements.txt)
 
 - Contains "pipx packages".
-- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20) alias and [`pipx_install_from_file`](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh#L33-L56) function.
+- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20) alias and [`pipx_install_from_file`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh#L33-L56) function.
 
 ## [server](https://github.com/aclark4life/dotfiles/blob/main/server)
 
@@ -164,10 +164,10 @@
 
 - Oh My Zsh customizations.
 
-    - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh)
-    - [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh)
-    - [scripts.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/scripts.zsh)
-    - [variables.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/variables.zsh)
+    - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh)
+    - [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh)
+    - [scripts.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/scripts.zsh)
+    - [variables.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/variables.zsh)
 
 ## [zshrc](https://github.com/aclark4life/dotfiles/blob/main/zshrc)
 
