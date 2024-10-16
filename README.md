@@ -81,7 +81,7 @@
 ## [Brewfile](https://github.com/aclark4life/dotfiles/blob/main/Brewfile)
 
 - Contains brew formulas and casks.
-- Installed and updated with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/zsh/aliases.zsh#L13-L20) alias.
+- Installed and updated with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh#L13-L20) alias.
 
 ## [LICENSE.txt](https://github.com/aclark4life/dotfiles/blob/main/LICENSE.txt)
 
@@ -98,13 +98,13 @@
 ## [aws](https://github.com/aclark4life/dotfiles/blob/main/aws)
 
 - No `aws/credentials` file here.
-- Credentials are set per-directory via [`direnv`](https://github.com/aclark4life/dotfiles/blob/main/zsh/direnv.zsh#L15-L37).
+- Credentials are set per-directory via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh).
 - Set the default region in [aws/config](https://github.com/aclark4life/dotfiles/blob/main/aws/config).
 
 ## [checkoutmanager.cfg](https://github.com/aclark4life/dotfiles/blob/main/checkoutmanager.cfg)
 
 - Contains repositories managed by [checkoutmanager](https://github.com/reinout/checkoutmanager).
-- Additional repositories found in `.config/checkoutmanager/checkoutmanager.cfg` will be managed by [zsh/functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh#L1-L18).
+- Additional repositories found in `.config/checkoutmanager/checkoutmanager.cfg` will be managed by [zsh/functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh#L1-L18).
 
 ## [config](https://github.com/aclark4life/dotfiles/blob/main/config)
 
@@ -128,7 +128,7 @@
 
 ## [package.json](https://github.com/aclark4life/dotfiles/blob/main/package.json)
 
-- `npm install -g` via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh)
+- `npm install -g` via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh).
 
 ## [project.mk](https://github.com/aclark4life/dotfiles/blob/main/project.mk)
 
