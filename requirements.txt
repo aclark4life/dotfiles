@@ -4,6 +4,7 @@ checkoutmanager
 djlint
 dotfiles
 mongo-orchestration
+mtools
 pre-commit
 pypistats
 ruff
