@@ -1,3 +1,6 @@
 [user]
 	email = aclark@aclark.net
 	name = Jeffrey A. Clark
+
+[push]
+    autoSetupRemote = true
