@@ -52,11 +52,19 @@ pipx_install_from_file() {
     pipx install "$package"
   done < "$file"
 
-  echo "All packages installed!"
+  echo "All pipx packages installed!"
 
   pipx upgrade-all
 
-  echo "All packages updated!"
+  echo "All pipx packages updated!"
+}
+
+
+# Function to install global npm packages from a file
+npm_install_global_from_file() {
+  local file=~/Dotfiles/package.json
+  pushd `dirname $file` > /dev/null; npm install -g; popd
+  echo "All npm packages installed!"
 }
 
 # Change to a temporary directory
@@ -93,4 +101,3 @@ direnv() {
 
 # Add the function to the precmd hook to run before each prompt
 precmd_functions+=(direnv)
-
