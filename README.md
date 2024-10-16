@@ -20,6 +20,7 @@
   - [inputrc](#inputrc)
   - [nvm](#nvm)
   - [pdbrc](#pdbrc)
+  - [package.json](#packagejson)
   - [project.mk](#projectmk)
   - [requirements.txt](#requirementstxt)
   - [server](#server)
@@ -124,6 +125,10 @@
 ## [pdbrc](https://github.com/aclark4life/dotfiles/blob/main/pdbrc)
 
 - Configure `vi` key bindings in Readline in `pdb`.
+
+## [package.json](https://github.com/aclark4life/dotfiles/blob/main/package.json)
+
+- `npm install -g` via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/zsh/functions.zsh)
 
 ## [project.mk](https://github.com/aclark4life/dotfiles/blob/main/project.mk)
 
