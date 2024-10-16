@@ -50,12 +50,20 @@
 ├── checkoutmanager.cfg
 ├── config
 │   └── nvim
+│       └── init.vim
 ├── dotfilesrc
 ├── inputrc
 ├── nvm
 │   └── nvm.sh
+├── oh-my-zsh-custom
+│   ├── aliases.zsh
+│   ├── functions.zsh
+│   ├── scripts.zsh
+│   └── variables.zsh
+├── package.json
 ├── pdbrc
 ├── project.mk
+├── requirements.txt
 ├── server
 │   ├── server.inetloc
 │   ├── server.rdp
@@ -63,13 +71,7 @@
 ├── ssh
 │   └── config
 ├── terminal-background-color.scpt
-├── vimrc
 ├── zprofile
-├── oh-my-zsh-custom
-│   ├── aliases.zsh
-│   ├── functions.zsh
-│   ├── scripts.zsh
-│   └── variables.zsh
 └── zshrc
 
 8 directories, 25 files
