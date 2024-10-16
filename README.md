@@ -137,7 +137,7 @@
 ## [requirements.txt](https://github.com/aclark4life/dotfiles/blob/main/requirements.txt)
 
 - Contains "pipx packages".
-- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh#L13-L20) alias and [`pipx_install_from_file`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh#L37-L60) function.
+- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh#L16-L24) alias and [`pipx_install_from_file`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh#L37-L60) function.
 
 ## [server](https://github.com/aclark4life/dotfiles/blob/main/server)
 
