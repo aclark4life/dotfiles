@@ -54,7 +54,7 @@ pipx_install_from_file() {
 
   echo "All pipx packages installed!"
 
-  pipx upgrade-all
+  pipx --quiet upgrade-all
 
   echo "All pipx packages updated!"
 }

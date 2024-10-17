@@ -22,7 +22,6 @@ brew "xz"
 # Casks
 cask "discord"
 cask "firefox"
-cask "github"
 cask "jumpcut"
 cask "xquartz"
 ## Sometimes these casks are already installed by IT dept
