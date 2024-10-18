@@ -16,3 +16,4 @@ nvm/*
 server/*
 !server/server.*
 .DS_Store
+package-lock.json
