@@ -1,6 +1,7 @@
 # Formulas
 brew "act"
 brew "cmake"
+brew "coredns"
 brew "coreutils"
 brew "gdal"
 brew "libmemcached"
