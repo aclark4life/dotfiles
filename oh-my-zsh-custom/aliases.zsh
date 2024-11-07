@@ -1,6 +1,6 @@
 alias b="gh browse"
 alias e="env | sort | tac"
-alias gce="git commit -a"
+alias gce="git commit -a && git push"
 alias j="just"
 alias je="just -e"
 alias jl="just -l"
