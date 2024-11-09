@@ -10,9 +10,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-" Set clipboard to use system clipboard
-set clipboard=unnamedplus
-
 " Set justfile to use spaces for indentation
 autocmd BufRead,BufNewFile justfile set filetype=just
 autocmd FileType just setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=0
+
+
