@@ -26,6 +26,7 @@ cask "firefox"
 cask "jumpcut"
 cask "microsoft-remote-desktop"
 cask "mongodb-compass"
+cask "pycharm"
 cask "sublime-text"
 cask "xquartz"
 ## Sometimes these casks are already installed by IT dept
