@@ -24,3 +24,5 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
+
+setopt share_history
