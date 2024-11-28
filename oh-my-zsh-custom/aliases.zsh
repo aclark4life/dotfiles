@@ -1,4 +1,5 @@
 alias b="gh browse"
+alias dj="django-mongodb-cli"
 alias e="env | sort | tac"
 alias fp="gpf"
 alias j="just"
