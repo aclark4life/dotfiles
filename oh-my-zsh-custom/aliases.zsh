@@ -1,6 +1,7 @@
 alias b="gh browse"
 alias dj="django-mongodb-cli"
 alias e="env | sort | tac"
+alias ec2="aws ec2"
 alias fp="gpf"
 alias j="just"
 alias je="just -e"
