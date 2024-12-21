@@ -17,6 +17,9 @@ export PYTHON_VENV_NAME=.venv
 export PIPX_ROOT="$HOME/.local"
 [[ -d $PIPX_ROOT/bin ]] && export PATH="$PIPX_ROOT/bin:$PATH"
 
+# Cargo
+export PATH=".cargo/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
