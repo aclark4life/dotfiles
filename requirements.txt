@@ -1,0 +1,13 @@
+awscli
+awsebcli
+checkoutmanager
+djlint
+dotfiles
+mongo-orchestration
+mtools
+pre-commit
+pypistats
+pytest
+ruff
+twine
+uv
