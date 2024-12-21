@@ -1,3 +1,0 @@
-[dotfiles]
-repository = ~/Dotfiles
-ignore = [".git", ".gitignore", "Makefile", "project.mk", "README.md", "LICENSE.txt", "package.json"]
