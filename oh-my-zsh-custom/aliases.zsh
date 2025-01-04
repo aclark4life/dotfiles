@@ -30,13 +30,3 @@ alias se="python manage.py runserver 0.0.0.0:8000"
 alias so="source ~/.zshrc"
 alias st="gst"
 alias ce="git commit -a && git push"
-
-# Update repositories with `cm` function and update package managers with `brew` or `dnf`.
-case `uname` in
-  Darwin)
-  alias u="cm co && cm up && brew update && brew upgrade && brew bundle install --file=~/.Brewfile && pipx_install_from_file && npm_install_global_from_file"
-  ;;
-  Linux)
-  alias u="cm co && cm up && sudo dnf update -y && pipx_install_from_file"
-  ;;
-esac
