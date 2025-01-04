@@ -1,3 +1,0 @@
-
-[Developer/django-mongodb-cli]
-checkout = git clone 'git@github.com:aclark4life/django-mongodb-cli' 'django-mongodb-cli'
