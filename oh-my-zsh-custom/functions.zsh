@@ -2,24 +2,24 @@
 # DIRENV_PROJECTS_DIR="$HOME/Developer"
 # DIRENV_LAST_CHECKED_DIR=""
 
-# Load the checkoutmanager configuration files found in ~/.checkoutmanager
-function cm () {
-  local cmd=$1
-  local cfg=~/.checkoutmanager/checkoutmanager.cfg
-
-  # Commit changes made in checkoutmanager directory
-  pushd `dirname $cfg`; git commit -a -m "Update" && git push > /dev/null 2>&1; popd
-
-  if [ -z "$cmd" ]; then
-    # Run checkoutmanager once with no arguments
-    checkoutmanager
-  else
-    # Run checkoutmanager with arguments
-    checkoutmanager "$cmd"
-    # Run checkoutmanager with arguments and -c $cfg
-    [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
-  fi
-}
+# # Load the checkoutmanager configuration files found in ~/.checkoutmanager
+# function cm () {
+#   local cmd=$1
+#   local cfg=~/.checkoutmanager/checkoutmanager.cfg
+# 
+#   # Commit changes made in checkoutmanager directory
+#   pushd `dirname $cfg`; git commit -a -m "Update" && git push > /dev/null 2>&1; popd
+# 
+#   if [ -z "$cmd" ]; then
+#     # Run checkoutmanager once with no arguments
+#     checkoutmanager
+#   else
+#     # Run checkoutmanager with arguments
+#     checkoutmanager "$cmd"
+#     # Run checkoutmanager with arguments and -c $cfg
+#     [ -f "$cfg" ] && checkoutmanager "$cmd" -c "$cfg"
+#   fi
+# }
 
 # Custom mkv function to create a virtualenv with uv and activate it
 function mkv () {
