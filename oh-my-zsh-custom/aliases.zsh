@@ -1,4 +1,5 @@
 alias b="gh browse"
+alias cm="checkoutmanager"
 alias df="df -h"
 alias dj="django-mongodb-cli"
 alias e="env | sort | tac"
