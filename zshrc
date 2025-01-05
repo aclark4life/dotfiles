@@ -8,7 +8,7 @@ ZSH_THEME="random"
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Add plugins wisely, as too many plugins slow down shell startup.
-plugins=(aliases git python)
+plugins=(aliases direnv git python)
 
 # Python plugin settings
 export PYTHON_AUTO_VRUN=true
