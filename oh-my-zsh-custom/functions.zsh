@@ -30,6 +30,7 @@ function mkv () {
   vrun "${name}"
   python -m ensurepip
   pushd "${venvpath}/bin" > /dev/null && ln -sv pip3 ./pip && popd > /dev/null
+  python -m pip install --upgrade pip
   vrun "${name}"
 }
 
