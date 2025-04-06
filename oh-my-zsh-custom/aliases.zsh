@@ -1,3 +1,4 @@
+alias a="direnv allow"
 alias b="gh browse"
 alias ce="git commit -a && git push"
 alias cm="checkoutmanager"
