@@ -1,5 +1,5 @@
 brew "direnv"
-brew "firefox"
 brew "neovim"
 brew "pyenv"
+cask "firefox"
 cask "jumpcut"
