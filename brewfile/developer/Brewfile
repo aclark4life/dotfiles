@@ -1,4 +1,3 @@
-# Formulas
 brew "act"
 brew "cmake"
 brew "coredns"
