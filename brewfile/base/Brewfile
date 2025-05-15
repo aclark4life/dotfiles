@@ -1,3 +1,4 @@
 brew "direnv"
+brew "jumpcut"
 brew "neovim"
 brew "pyenv"
