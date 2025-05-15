@@ -53,26 +53,26 @@ function mkv () {
 pipxfiles() {
   local file=~/.pipxfile
 
-  # Check if the file exists
   if [[ ! -f "$file" ]]; then
     echo "Package list file '$file' not found!"
     return 1
   fi
 
-  # Check for jq (required for JSON parsing)
   if ! command -v jq >/dev/null; then
     echo "jq is required for this script to work. Please install it first."
     return 1
   fi
 
-  # Get list of installed packages using JSON
   local installed
-  installed=$(pipx list --json | jq -r '.venvs | keys[]')
+  installed=$(pipx list --json | jq -r '.venvs | keys[]' | tr '[:upper:]' '[:lower:]')
 
   while IFS= read -r package || [[ -n "$package" ]]; do
     [[ -z "$package" || "$package" == \#* ]] && continue
 
-    if echo "$installed" | grep -qx "$package"; then
+    local pkg_lc
+    pkg_lc=$(echo "$package" | tr '[:upper:]' '[:lower:]')
+
+    if echo "$installed" | grep -qx "$pkg_lc"; then
       echo "$package is already installed, skipping."
     else
       echo "Installing $package..."
