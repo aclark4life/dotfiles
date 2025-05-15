@@ -1,5 +1,4 @@
 brew "direnv"
-brew "gh"
 brew "neovim"
 brew "pyenv"
 cask "firefox"
