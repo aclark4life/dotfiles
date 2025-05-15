@@ -1,3 +1,17 @@
+pushdotfiles() {
+  pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
+
+  # Check for any staged or unstaged changes
+  if [[ -n "$(git status --porcelain)" ]]; then
+    git commit -a -m "Update dotfiles"
+    git push
+  else
+    echo "No changes to commit."
+  fi
+
+  popd
+}
+
 # Custom mkv function to create a virtualenv with uv and activate it
 function mkv () {
   local name="${1:-$PYTHON_VENV_NAME}" 
