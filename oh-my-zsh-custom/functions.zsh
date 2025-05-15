@@ -51,8 +51,8 @@ function mkv () {
 }
 
 # Function to install pipx packages from a file
-pipx_install_from_file() {
-  local file=~/.requirements.txt
+pipxfiles() {
+  local file=~/.pipxfile
 
   # Check if the file exists
   if [[ ! -f "$file" ]]; then
