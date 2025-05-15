@@ -50,7 +50,6 @@ function mkv () {
   vrun "${name}"
 }
 
-# Function to install pipx packages from a file
 pipxfiles() {
   local file=~/.pipxfile
 
@@ -60,12 +59,20 @@ pipxfiles() {
     return 1
   fi
 
-  # Install each package listed in the file
+  # Check for jq (required for JSON parsing)
+  if ! command -v jq >/dev/null; then
+    echo "jq is required for this script to work. Please install it first."
+    return 1
+  fi
+
+  # Get list of installed packages using JSON
+  local installed
+  installed=$(pipx list --json | jq -r '.venvs | keys[]')
+
   while IFS= read -r package || [[ -n "$package" ]]; do
-    # Skip empty lines or comments
     [[ -z "$package" || "$package" == \#* ]] && continue
 
-    if pipx list --short | grep -q "^$package$"; then
+    if echo "$installed" | grep -qx "$package"; then
       echo "$package is already installed, skipping."
     else
       echo "Installing $package..."
@@ -74,9 +81,7 @@ pipxfiles() {
   done < "$file"
 
   echo "All pipx packages processed!"
-
   pipx --quiet upgrade-all
-
   echo "All pipx packages updated!"
 }
 
