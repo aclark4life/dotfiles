@@ -5,9 +5,16 @@ brewfiles() {
   echo "⬆️ Upgrading installed packages..."
   brew upgrade
 
-  echo "📦 Installing from Brewfile.base..."
+  echo "📦 Installing from base/Brewfile..."
   if [[ -f ~/Dotfiles/brewfile/base/Brewfile ]]; then
     brew bundle --file=~/Dotfiles/brewfile/base/Brewfile
+  else
+    echo "⚠️ Brewfile not found!"
+  fi
+
+  echo "📦 Installing from developer/Brewfile..."
+  if [[ -f ~/Dotfiles/brewfile/developer/Brewfile ]]; then
+    brew bundle --file=~/Dotfiles/brewfile/developer/Brewfile
   else
     echo "⚠️ Brewfile not found!"
   fi
