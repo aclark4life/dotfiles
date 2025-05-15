@@ -72,33 +72,3 @@ npm_install_global_from_file() {
 function t () {
   cd "$(mktemp -d)"
 }
-
-
-# # Similar to direnv, but load environment variables from envrc files outside
-# # current directory.
-# direnv() {
-#   # Get the current directory
-#   current_dir=$(pwd)
-#   
-#   # Check if the current directory is the same as the last checked directory
-#   if [[ "$current_dir" == "$DIRENV_LAST_CHECKED_DIR" ]]; then
-#     return
-#   fi
-#   
-#   # Update the last checked directory
-#   DIRENV_LAST_CHECKED_DIR="$current_dir"
-#   
-#   # Extract the relative path from the current directory
-#   relative_path="${current_dir#"$DIRENV_PROJECTS_DIR/"}"
-#   
-#   # Construct the path within the base directory
-#   target_file="$DIRENV_BASE_DIR/$relative_path/envrc"
-#   
-#   # Check if the file exists
-#   if [[ -f "$target_file" ]]; then
-#     source "$target_file"
-#   fi
-# }
-# 
-# # Add the function to the precmd hook to run before each prompt
-# precmd_functions+=(direnv)
