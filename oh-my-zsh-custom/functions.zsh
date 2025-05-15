@@ -1,4 +1,4 @@
-brewfiles() {
+function brewfiles() {
   echo "🔄 Updating Homebrew..."
   brew update
 
@@ -23,7 +23,7 @@ brewfiles() {
 }
 
 # Function to update and push dotfiles to the git repository
-pushdotfiles() {
+function pushdotfiles() {
   pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
 
   # Check for any staged or unstaged changes
@@ -50,7 +50,7 @@ function mkv () {
   vrun "${name}"
 }
 
-pipxfiles() {
+function pipxfiles() {
   local file=~/.pipxfile
 
   if [[ ! -f "$file" ]]; then
