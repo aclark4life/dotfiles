@@ -1,3 +1,21 @@
+brewfiles() {
+  echo "🔄 Updating Homebrew..."
+  brew update
+
+  echo "⬆️ Upgrading installed packages..."
+  brew upgrade
+
+  echo "📦 Installing from Brewfile.base..."
+  if [[ -f ~/Dotfiles/brewfile/base/Brewfile ]]; then
+    brew bundle --file=Brewfile.base
+  else
+    echo "⚠️ Brewfile not found!"
+  fi
+
+  echo "✅ All done!"
+}
+
+# Function to update and push dotfiles to the git repository
 pushdotfiles() {
   pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
 
