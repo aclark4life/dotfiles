@@ -7,7 +7,7 @@ brewfiles() {
 
   echo "📦 Installing from Brewfile.base..."
   if [[ -f ~/Dotfiles/brewfile/base/Brewfile ]]; then
-    brew bundle --file=Brewfile.base
+    brew bundle --file=~/Dotfiles/brewfile/base/Brewfile
   else
     echo "⚠️ Brewfile not found!"
   fi
