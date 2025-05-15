@@ -28,8 +28,8 @@ case `uname` in
   ;;
 esac
 
-case `uname` in
-  Darwin)
-  osascript $HOME/.terminal-background-color.scpt
-  ;;
-esac
+# case `uname` in
+#   Darwin)
+#   osascript $HOME/.terminal-background-color.scpt
+#   ;;
+# esac
