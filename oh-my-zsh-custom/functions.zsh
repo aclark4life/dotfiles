@@ -85,13 +85,6 @@ pipxfiles() {
   echo "All pipx packages updated!"
 }
 
-# Function to install global npm packages from a file
-npm_install_global_from_file() {
-  local file=~/Dotfiles/package.json
-  pushd `dirname $file` > /dev/null; npm install -g; popd
-  echo "All npm packages installed!"
-}
-
 # Change to a temporary directory
 function t () {
   cd "$(mktemp -d)"
