@@ -65,11 +65,15 @@ pipxfiles() {
     # Skip empty lines or comments
     [[ -z "$package" || "$package" == \#* ]] && continue
 
-    echo "Installing $package..."
-    pipx install "$package"
+    if pipx list --short | grep -q "^$package$"; then
+      echo "$package is already installed, skipping."
+    else
+      echo "Installing $package..."
+      pipx install "$package"
+    fi
   done < "$file"
 
-  echo "All pipx packages installed!"
+  echo "All pipx packages processed!"
 
   pipx --quiet upgrade-all
 
