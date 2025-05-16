@@ -1,3 +1,4 @@
 brew "azure-cli"
 brew "gh"
 brew "just"
+brew "nvm"
