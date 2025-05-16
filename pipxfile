@@ -2,6 +2,7 @@ awscli
 awsebcli
 checkoutmanager
 dotfiles
+mongo-orchestration
 pre-commit
 pypistats
 uv
