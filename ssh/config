@@ -1,2 +1,5 @@
 Host *
     IdentityFile ~/.ssh/id
+
+Host pws
+    User alex.clark
