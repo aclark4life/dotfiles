@@ -33,14 +33,3 @@ esac
 #   osascript $HOME/.terminal-background-color.scpt
 #   ;;
 # esac
-
-if [[ -z "$ZSH_SESSION_ONCE" && ! -f /tmp/terminal-session-started ]]; then
-  export ZSH_SESSION_ONCE=1
-  touch /tmp/terminal-session-started
-
-  # ✅ Your Oh My Zsh functions and aliases are available here
-  echo "Hello, this runs only once per Terminal app launch"
-
-  # Example: Run an Oh My Zsh function (e.g., `extract` or custom)
-  u
-fi
