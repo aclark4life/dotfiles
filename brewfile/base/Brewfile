@@ -1,7 +1,6 @@
 brew "direnv"
 brew "neovim"
 brew "pyenv"
-brew "tac"
 brew "xeyes"
 cask "firefox"
 cask "jumpcut"
