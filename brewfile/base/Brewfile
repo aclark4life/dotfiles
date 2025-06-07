@@ -1,5 +1,4 @@
 brew "direnv"
-brew "iftop"
 brew "neovim"
 brew "pyenv"
 brew "xeyes"
