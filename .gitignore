@@ -1,3 +1,5 @@
+aws/cli/*
+aws/sso/*
 checkoutmanager/*
 !checkoutmanager/checkoutmanager.cfg
 ssh/*
