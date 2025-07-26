@@ -29,3 +29,5 @@ bindkey '^r' history-incremental-search-backward
 bindkey '\t' expand-or-complete-prefix
 
 setopt share_history
+
+unsetopt AUTO_CD
