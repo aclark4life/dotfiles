@@ -31,3 +31,7 @@ bindkey '\t' expand-or-complete-prefix
 setopt share_history
 
 unsetopt AUTO_CD
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
