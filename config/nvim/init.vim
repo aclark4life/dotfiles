@@ -14,4 +14,4 @@ set softtabstop=4
 autocmd BufRead,BufNewFile justfile set filetype=just
 autocmd FileType just setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=0
 
-"set colorcolumn=80  
+set colorcolumn=80  
