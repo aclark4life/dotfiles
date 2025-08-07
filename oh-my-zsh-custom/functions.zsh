@@ -22,6 +22,11 @@ function brewfiles() {
   echo "✅ All done!"
 }
 
+function checkoutmanager() {
+    checkoutmanager co
+    checkoutmanager up
+}
+
 # Function to update and push dotfiles to the git repository
 function dotfiles() {
   pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
