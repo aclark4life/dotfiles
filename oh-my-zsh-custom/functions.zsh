@@ -23,8 +23,9 @@ function brewfiles() {
 }
 
 # Function to update and push dotfiles to the git repository
-function pushdotfiles() {
+function dotfiles() {
   pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
+  git pull
 
   # Check for any staged or unstaged changes
   if [[ -n "$(git status --porcelain)" ]]; then
