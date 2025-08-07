@@ -22,7 +22,7 @@ function brewfiles() {
     echo "✅ All done!"
 }
 
-function checkoutmanager() {
+function checkoutmanagerfiles() {
     echo "🔄 Updating CheckoutManager..."
     checkoutmanager co
     echo "⬆️ Upgrading CheckoutManager..."
