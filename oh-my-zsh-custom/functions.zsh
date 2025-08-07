@@ -32,17 +32,19 @@ function checkoutmanagerfiles() {
 # Function to update and push dotfiles to the git repository
 function dotfiles() {
     pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
-    echo "🔄 Updating dotfiles repository..." 
+    echo "🔄 Pulling dotfiles repository..." 
     git pull
 
+    echo "🔄 Committing dotfiles repository..." 
     # Check for any staged or unstaged changes
     if [[ -n "$(git status --porcelain)" ]]; then
-      git commit -a -m "Update dotfiles"
-      git push
+        git commit -a -m "Update dotfiles"
     else
-      echo "No changes to commit."
+        echo "No changes to commit."
     fi
-
+    echo "🔄 Pushing dotfiles repository..." 
+    # Check for any staged or unstaged changes
+        git push
     popd
 }
 
@@ -63,30 +65,30 @@ function pipxfiles() {
     local file=~/.pipxfile
   
     if [[ ! -f "$file" ]]; then
-      echo "Package list file '$file' not found!"
-      return 1
+        echo "Package list file '$file' not found!"
+        return 1
     fi
   
     if ! command -v jq >/dev/null; then
-      echo "jq is required for this script to work. Please install it first."
-      return 1
+        echo "jq is required for this script to work. Please install it first."
+        return 1
     fi
   
     local installed
     installed=$(pipx list --json | jq -r '.venvs | keys[]' | tr '[:upper:]' '[:lower:]')
   
     while IFS= read -r package || [[ -n "$package" ]]; do
-      [[ -z "$package" || "$package" == \#* ]] && continue
+        [[ -z "$package" || "$package" == \#* ]] && continue
   
-      local pkg_lc
-      pkg_lc=$(echo "$package" | tr '[:upper:]' '[:lower:]')
+        local pkg_lc
+        pkg_lc=$(echo "$package" | tr '[:upper:]' '[:lower:]')
   
-      if echo "$installed" | grep -qx "$pkg_lc"; then
-        echo "$package is already installed, skipping."
-      else
-        echo "Installing $package..."
-        pipx install "$package"
-      fi
+        if echo "$installed" | grep -qx "$pkg_lc"; then
+          echo "$package is already installed, skipping."
+        else
+          echo "Installing $package..."
+          pipx install "$package"
+        fi
     done < "$file"
   
     echo "All pipx packages processed!"
