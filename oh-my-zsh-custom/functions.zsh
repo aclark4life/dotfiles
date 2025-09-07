@@ -30,7 +30,7 @@ function checkoutmanagerfiles() {
 }
 
 # Function to update and push dotfiles to the git repository
-function dotfiles() {
+function updatedotfiles() {
     pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
     echo "🔄 Pulling dotfiles repository..." 
     git pull
