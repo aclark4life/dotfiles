@@ -1,2 +1,11 @@
 [default]
 region = us-east-1
+[profile drivers-test-secrets-role-857654397073]
+sso_session = my-sso
+sso_account_id = 857654397073
+sso_role_name = drivers-test-secrets-role
+region = us-east-1
+[sso-session my-sso]
+sso_start_url = https://d-9067613a84.awsapps.com/start/#
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
