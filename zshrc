@@ -35,3 +35,24 @@ unsetopt AUTO_CD
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+
+# GCLI Terminal Integration (auto-record interactive shells)
+if [ -t 1 ] && [ -z "$GCLI_RECORDING" ]; then
+    if [ "$(ps -p $PPID -o comm= 2>/dev/null | tr -d " ")" != "script" ]; then
+        TTY=$(tty 2>/dev/null || echo "notty")
+        LOGFILE="/tmp/$(basename "$TTY" | sed "s|/|_|g")_$(uuidgen).log"
+        # Create the logfile immediately to ensure it exists
+        touch "$LOGFILE"
+        export LOGFILE
+        export GCLI_RECORDING=1
+        # macOS script command syntax
+        exec script -q "$LOGFILE" zsh
+    else
+        if [ -n "$LOGFILE" ]; then
+            trap "rm -f '$LOGFILE'" EXIT
+        fi
+    fi
+fi
+export PATH="$HOME/.gcli/bin:$PATH"
+alias gcli="$HOME/.gcli/bin/gcli"
+
