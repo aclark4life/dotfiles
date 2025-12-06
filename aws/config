@@ -1,6 +1,6 @@
 [default]
 region = us-east-1
-[profile drivers-test-secrets-role-857654397073]
+[profile my-profile]
 sso_session = my-sso
 sso_account_id = 857654397073
 sso_role_name = drivers-test-secrets-role
