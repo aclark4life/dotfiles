@@ -1,6 +1,6 @@
 [default]
 region = us-east-1
-login_session = arn:aws:iam::014889281015:user/aclark
+login_session = arn:aws:iam::722981217682:user/aclark@aclark.net
 [profile my-profile]
 sso_session = my-sso
 sso_account_id = 857654397073
