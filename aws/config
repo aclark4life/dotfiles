@@ -1,12 +1,3 @@
 [default]
+login_session = arn:aws:iam::014889281015:user/aclark
 region = us-east-1
-login_session = arn:aws:iam::722981217682:user/aclark@aclark.net
-[profile my-profile]
-sso_session = my-sso
-sso_account_id = 857654397073
-sso_role_name = drivers-test-secrets-role
-region = us-east-1
-[sso-session my-sso]
-sso_start_url = https://d-9067613a84.awsapps.com/start/#
-sso_region = us-east-1
-sso_registration_scopes = sso:account:access
