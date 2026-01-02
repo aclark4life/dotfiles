@@ -1,2 +1,6 @@
 Host *
     IdentityFile ~/.ssh/id
+
+Host m.aclark.net
+    IdentityFile ~/.ssh/aclarknet.pem
+    User ec2-user
