@@ -18,4 +18,4 @@ case `uname` in
 esac
 
 # https://stackoverflow.com/a/78849779
-PYTHON_BASIC_REPL=1
+export PYTHON_BASIC_REPL=1
