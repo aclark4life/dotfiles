@@ -16,3 +16,6 @@ case `uname` in
     [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
     ;;
 esac
+
+# https://stackoverflow.com/a/78849779
+PYTHON_BASIC_REPL=1
