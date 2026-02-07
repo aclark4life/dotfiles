@@ -28,7 +28,7 @@ case `uname` in
   ;;
 esac
 
-if [ -n "$RANDOM_TERM" ]; then
+if [ -n "$RANDOM_TERMINAL_COLORS" ]; then
   case $(uname) in
     Darwin)
       num_windows=$(osascript -e 'tell application "Terminal" to count windows')
