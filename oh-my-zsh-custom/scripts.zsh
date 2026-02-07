@@ -28,11 +28,13 @@ case `uname` in
   ;;
 esac
 
-# case $(uname) in  
-#   Darwin)  
-#     num_windows=$(osascript -e 'tell application "Terminal" to count windows')  
-#     if [ "$num_windows" -eq 1 ]; then  
-#       osascript "$HOME/.terminal-background-color.scpt"  
-#     fi  
-#     ;;  
-# esac  
+if [ -n "$RANDOM_TERM" ]; then
+  case $(uname) in
+    Darwin)
+      num_windows=$(osascript -e 'tell application "Terminal" to count windows')
+      if [ "$num_windows" -eq 1 ]; then
+        osascript "$HOME/.terminal-background-color.scpt"
+      fi
+      ;;
+  esac
+fi
