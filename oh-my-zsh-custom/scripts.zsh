@@ -1,3 +1,5 @@
+# export RANDOM_TERMINAL_COLORS=1
+
 case `uname` in
   Darwin)
 	# Define the dock path (formerly folder path) you want to add to the Dock
@@ -31,10 +33,7 @@ esac
 if [ -n "$RANDOM_TERMINAL_COLORS" ]; then
   case $(uname) in
     Darwin)
-      num_windows=$(osascript -e 'tell application "Terminal" to count windows')
-      if [ "$num_windows" -eq 1 ]; then
-        osascript "$HOME/.terminal-background-color.scpt"
-      fi
+      osascript "$HOME/.terminal-background-color.scpt"
       ;;
   esac
 fi
