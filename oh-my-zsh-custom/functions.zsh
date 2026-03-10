@@ -49,14 +49,20 @@ function updatedotfiles() {
 }
 
 # Custom mkv function to create a virtualenv with uv and activate it
-function mkv () {
+mkv () {
     local name="${1:-$PYTHON_VENV_NAME}" 
     local venvpath="${name:P}" 
-    uv venv "${name}" || return
-    echo "Created venv in '${venvpath}'" >&2
+    
+    # Force uv to use the python version set by pyenv
+    uv venv --python "$(pyenv which python)" "${name}" || return
+    
+    echo "Created venv in '${venvpath}' using $(python --version)" >&2
+    
     vrun "${name}"
     python -m ensurepip
+    
     pushd "${venvpath}/bin" > /dev/null && ln -sv pip3 ./pip && popd > /dev/null
+    
     python -m pip install --upgrade pip
     vrun "${name}"
 }
