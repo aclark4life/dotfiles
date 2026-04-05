@@ -1,5 +1,7 @@
 alias a="direnv allow"
 alias b="gh browse"
+alias calm="gcalcli calm"
+alias calw="gcalcli calw"
 alias ce="git commit -a && git push"
 alias cm="checkoutmanager"
 alias df="df -h"
