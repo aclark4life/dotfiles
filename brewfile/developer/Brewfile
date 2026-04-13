@@ -1,7 +1,7 @@
 brew "azure-cli"
 brew "cmake"
 brew "gh"
-grew "glow"
+brew "glow"
 brew "just"
 brew "libpng"
 brew "libtiff"
