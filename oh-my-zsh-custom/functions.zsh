@@ -29,6 +29,15 @@ function checkoutmanagerfiles() {
     checkoutmanager up
 }
 
+# Function to show gcalcli agenda for today and tomorrow
+function cald() {
+  local today=$(date +%Y-%m-%d)
+  # Compatibility for both macOS (BSD) and Linux (GNU) date commands
+  local tomorrow=$(date -v+1d +%Y-%m-%d 2>/dev/null || date -d "tomorrow" +%Y-%m-%d)
+  
+  gcalcli agenda "$today" "$tomorrow"
+}
+
 # Function to update and push dotfiles to the git repository
 function updatedotfiles() {
     pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
