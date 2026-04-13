@@ -1,5 +1,6 @@
 brew "azure-cli"
 brew "cmake"
+brew "duf"
 brew "gh"
 brew "glow"
 brew "just"
