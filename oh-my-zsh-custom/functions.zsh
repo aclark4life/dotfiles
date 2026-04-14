@@ -58,7 +58,7 @@ function updatedotfiles() {
 }
 
 # Custom mkv function to create a virtualenv with uv and activate it
-mkv () {
+function mkv () {
     local name="${1:-$PYTHON_VENV_NAME}" 
     local venvpath="${name:P}" 
     
@@ -113,4 +113,26 @@ function pipxfiles() {
 # Change to a temporary directory
 function t () {
     cd "$(mktemp -d)"
+}
+
+function npmfiles() {
+  local file="${1:-package.json}"
+
+  if [[ ! -f "$file" ]]; then
+    echo "Error: $file not found."
+    return 1
+  fi
+
+  # Extract dependency names using jq and install them globally
+  echo "Extracting packages from $file..."
+  
+  local packages=$(jq -r '.dependencies, .devDependencies | keys[]' "$file" 2>/dev/null)
+
+  if [[ -z "$packages" ]]; then
+    echo "No dependencies found in $file."
+    return 1
+  fi
+
+  echo "Installing: ${(f)packages}"
+  npm install -g ${(f)packages}
 }
