@@ -1,1 +1,9 @@
-@augmentcode/auggie
+{
+  "name": "my-global-tools",
+  "version": "1.0.0",
+  "description": "Manifest for my global CLI tools",
+  "private": true,
+  "dependencies": {
+    "@augmentcode/auggie": "latest"
+  }
+}
