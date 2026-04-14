@@ -1,3 +1,4 @@
+# Function to brew update, upgrade, and bundle files
 function brewfiles() {
     echo "🔄 Updating Homebrew..."
     brew update
@@ -22,13 +23,6 @@ function brewfiles() {
     echo "✅ All done!"
 }
 
-function checkoutmanagerfiles() {
-    echo "🔄 Updating CheckoutManager..."
-    checkoutmanager co
-    echo "⬆️ Upgrading CheckoutManager..."
-    checkoutmanager up
-}
-
 # Function to show gcalcli agenda for today and tomorrow
 function cald() {
   local today=$(date +%Y-%m-%d)
@@ -38,23 +32,12 @@ function cald() {
   gcalcli agenda "$today" "$tomorrow"
 }
 
-# Function to update and push dotfiles to the git repository
-function updatedotfiles() {
-    pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
-    echo "🔄 Pulling dotfiles repository..." 
-    git pull
-
-    echo "🔄 Committing dotfiles repository..." 
-    # Check for any staged or unstaged changes
-    if [[ -n "$(git status --porcelain)" ]]; then
-        git commit -a -m "Update dotfiles"
-    else
-        echo "No changes to commit."
-    fi
-    echo "🔄 Pushing dotfiles repository..." 
-    # Check for any staged or unstaged changes
-        git push
-    popd
+# Function to update and upgrade CheckoutManager
+function checkoutmanagerfiles() {
+    echo "🔄 Updating CheckoutManager..."
+    checkoutmanager co
+    echo "⬆️ Upgrading CheckoutManager..."
+    checkoutmanager up
 }
 
 # Custom mkv function to create a virtualenv with uv and activate it
@@ -76,6 +59,30 @@ function mkv () {
     vrun "${name}"
 }
 
+# Function to install global npm packages from a package.json file
+function npmfiles() {
+  local file=~/.package.json
+
+  if [[ ! -f "$file" ]]; then
+    echo "Error: $file not found."
+    return 1
+  fi
+
+  # Extract dependency names using jq and install them globally
+  echo "Extracting packages from $file..."
+  
+  local packages=$(jq -r '.dependencies, .devDependencies | keys[]' "$file" 2>/dev/null)
+
+  if [[ -z "$packages" ]]; then
+    echo "No dependencies found in $file."
+    return 1
+  fi
+
+  echo "Installing: ${(f)packages}"
+  npm install -g ${(f)packages}
+}
+
+# Function to process pipx packages from a manifest file
 function pipxfiles() {
     local file=~/.pipxfile
     
@@ -132,24 +139,21 @@ function t () {
     cd "$(mktemp -d)"
 }
 
-function npmfiles() {
-  local file=~/.package.json
+# Function to update and push dotfiles to the git repository
+function updatedotfiles() {
+    pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
+    echo "🔄 Pulling dotfiles repository..." 
+    git pull
 
-  if [[ ! -f "$file" ]]; then
-    echo "Error: $file not found."
-    return 1
-  fi
-
-  # Extract dependency names using jq and install them globally
-  echo "Extracting packages from $file..."
-  
-  local packages=$(jq -r '.dependencies, .devDependencies | keys[]' "$file" 2>/dev/null)
-
-  if [[ -z "$packages" ]]; then
-    echo "No dependencies found in $file."
-    return 1
-  fi
-
-  echo "Installing: ${(f)packages}"
-  npm install -g ${(f)packages}
+    echo "🔄 Committing dotfiles repository..." 
+    # Check for any staged or unstaged changes
+    if [[ -n "$(git status --porcelain)" ]]; then
+        git commit -a -m "Update dotfiles"
+    else
+        echo "No changes to commit."
+    fi
+    echo "🔄 Pushing dotfiles repository..." 
+    # Check for any staged or unstaged changes
+        git push
+    popd
 }
