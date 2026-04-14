@@ -78,36 +78,53 @@ function mkv () {
 
 function pipxfiles() {
     local file=~/.pipxfile
-
+    
+    # 1. Validation Checks
     if [[ ! -f "$file" ]]; then
-        echo "Package list file '$file' not found!"
+        echo "Error: Package list file '$file' not found!"
         return 1
     fi
 
     if ! command -v jq >/dev/null; then
-        echo "jq is required for this script to work. Please install it first."
+        echo "Error: 'jq' is required. Install it with 'brew install jq' or your package manager."
         return 1
     fi
 
-    local installed
-    installed=$(pipx list --json | jq -r '.venvs | keys[]' | tr '[:upper:]' '[:lower:]')
+    # 2. Get currently installed packages into a Zsh Hash Map
+    echo "Fetching currently installed pipx packages..."
+    typeset -A installed_pkgs
+    local pkg
+    # Use (f) to split output by lines and :l to lowercase
+    for pkg in ${(f)"$(pipx list --json | jq -r '.venvs | keys[]' 2>/dev/null)"}; do
+        installed_pkgs[${pkg:l}]=1
+    done
 
+    # 3. Move to /tmp to avoid "path collision" errors (like the 'dotfiles' issue)
+    pushd /tmp > /dev/null
+
+    # 4. Process the manifest file
     while IFS= read -r package || [[ -n "$package" ]]; do
+        # Trim leading/trailing whitespace
+        package="${package#"${package%%[![:space:]]*}"}"
+        package="${package%"${package##*[![:space:]]}"}"
+        
+        # Skip empty lines and comments
         [[ -z "$package" || "$package" == \#* ]] && continue
 
-        local pkg_lc
-        pkg_lc=$(echo "$package" | tr '[:upper:]' '[:lower:]')
+        local pkg_lc="${package:l}"
 
-        if echo "$installed" | grep -qx "$pkg_lc"; then
-          echo "Upgrading $package..."
-          pipx upgrade "$package"
+        if [[ -n "${installed_pkgs[$pkg_lc]}" ]]; then
+            echo "--- Upgrading $package ---"
+            pipx upgrade "$package"
         else
-          echo "Installing $package..."
-          pipx install "$package"
+            echo "--- Installing $package ---"
+            pipx install "$package"
         fi
     done < "$file"
 
-    echo "All pipx packages processed!"
+    # 5. Return to original directory
+    popd > /dev/null
+    echo "\nAll pipx packages processed successfully!"
 }
 
 # Change to a temporary directory
