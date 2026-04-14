@@ -116,7 +116,7 @@ function t () {
 }
 
 function npmfiles() {
-  local file="${1:-package.json}"
+  local file=~/.npmfiles
 
   if [[ ! -f "$file" ]]; then
     echo "Error: $file not found."
