@@ -38,6 +38,7 @@ function checkoutmanagerfiles() {
     checkoutmanager co
     echo "⬆️ Upgrading CheckoutManager..."
     checkoutmanager up
+    echo "✅ All done!"
 }
 
 # Custom mkv function to create a virtualenv with uv and activate it
@@ -48,7 +49,7 @@ function mkv () {
     # Force uv to use the python version set by pyenv
     uv venv --python "$(pyenv which python)" "${name}" || return
     
-    echo "Created venv in '${venvpath}' using $(python --version)" >&2
+    echo "✅ Created venv in '${venvpath}' using $(python --version)"
     
     vrun "${name}"
     python -m ensurepip
@@ -64,22 +65,23 @@ function npmfiles() {
   local file=~/.package.json
 
   if [[ ! -f "$file" ]]; then
-    echo "Error: $file not found."
+    echo "❌ Error: $file not found."
     return 1
   fi
 
   # Extract dependency names using jq and install them globally
-  echo "Extracting packages from $file..."
+  echo "📦 Extracting packages from $file..."
   
   local packages=$(jq -r '.dependencies, .devDependencies | keys[]' "$file" 2>/dev/null)
 
   if [[ -z "$packages" ]]; then
-    echo "No dependencies found in $file."
+    echo "⚠️ No dependencies found in $file."
     return 1
   fi
 
-  echo "Installing: ${(f)packages}"
+  echo "📦 Installing: ${(f)packages}"
   npm install -g ${(f)packages}
+  echo "✅ All done!"
 }
 
 # Function to process pipx packages from a manifest file
@@ -88,17 +90,17 @@ function pipxfiles() {
     
     # 1. Validation Checks
     if [[ ! -f "$file" ]]; then
-        echo "Error: Package list file '$file' not found!"
+        echo "❌ Error: Package list file '$file' not found!"
         return 1
     fi
 
     if ! command -v jq >/dev/null; then
-        echo "Error: 'jq' is required. Install it with 'brew install jq' or your package manager."
+        echo "❌ Error: 'jq' is required. Install it with 'brew install jq' or your package manager."
         return 1
     fi
 
     # 2. Get currently installed packages into a Zsh Hash Map
-    echo "Fetching currently installed pipx packages..."
+    echo "🔄 Fetching currently installed pipx packages..."
     typeset -A installed_pkgs
     local pkg
     # Use (f) to split output by lines and :l to lowercase
@@ -121,17 +123,17 @@ function pipxfiles() {
         local pkg_lc="${package:l}"
 
         if [[ -n "${installed_pkgs[$pkg_lc]}" ]]; then
-            echo "--- Upgrading $package ---"
+            echo "⬆️ Upgrading $package..."
             pipx upgrade "$package"
         else
-            echo "--- Installing $package ---"
+            echo "📦 Installing $package..."
             pipx install "$package"
         fi
     done < "$file"
 
     # 5. Return to original directory
     popd > /dev/null
-    echo "\nAll pipx packages processed successfully!"
+    echo "✅ All pipx packages processed successfully!"
 }
 
 # Change to a temporary directory
@@ -155,5 +157,6 @@ function updatedotfiles() {
     echo "🔄 Pushing dotfiles repository..." 
     # Check for any staged or unstaged changes
         git push
+    echo "✅ All done!"
     popd
 }
