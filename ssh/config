@@ -2,7 +2,7 @@ Host *
     IdentityFile ~/.ssh/id
 
 Host aclark.net
-    IdentityFile ~/.ssh/aclarknet.pem
+    # IdentityFile ~/.ssh/aclarknet.pem
     User ec2-user
 
 Host pws
