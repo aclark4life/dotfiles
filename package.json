@@ -6,5 +6,6 @@
   "dependencies": {
     "@augmentcode/auggie": "latest",
     "mongodb-runner": "latest"
+    "mongosh": "latest"
   }
 }
