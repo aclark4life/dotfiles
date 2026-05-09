@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@augmentcode/auggie": "latest",
-    "mongodb-runner": "latest"
+    "mongodb-runner": "latest",
     "mongosh": "latest"
   }
 }
