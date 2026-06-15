@@ -4,8 +4,8 @@ function brewfiles() {
     brew update
  
     echo "⬆️ Upgrading installed packages..."
-    brew upgrade
- 
+    brew upgrade -y
+
     echo "📦 Installing from base/Brewfile..."
     if [[ -f ~/Dotfiles/brewfile/base/Brewfile ]]; then
       brew bundle --file=~/Dotfiles/brewfile/base/Brewfile
