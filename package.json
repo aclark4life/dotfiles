@@ -7,6 +7,7 @@
     "@augmentcode/auggie": "latest",
     "@google/gemini-cli": "latest",
     "mongodb-runner": "latest",
+    "playright-cli": "latest",
     "js-yaml": "latest"
   }
 }
