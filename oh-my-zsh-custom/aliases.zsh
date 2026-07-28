@@ -5,7 +5,15 @@ alias calw="gcalcli calw"
 alias ce="git commit -a && git push"
 alias cm="checkoutmanager"
 alias claude="claude --permission-mode auto"
-alias copilot="copilot --allow-all-tools --add-dir /tmp" 
+copilot() {
+  command copilot --allow-all-tools --add-dir /tmp "$@"
+  local ret=$?
+  # If no other copilot processes remain running, clean up ~/.copilot
+  if [[ $(pgrep -x copilot 2>/dev/null | wc -l | tr -d ' ') -eq 0 ]]; then
+    rm -rvf ~/.copilot/
+  fi
+  return $ret
+}
 alias df="duf"
 alias e="env | sort | tail -r"
 alias ec2="aws ec2"
