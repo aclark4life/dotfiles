@@ -4,7 +4,16 @@ alias calm="gcalcli calm"
 alias calw="gcalcli calw"
 alias ce="git commit -a && git push"
 alias cm="checkoutmanager"
-alias claude="claude --permission-mode auto"
+claude() {
+  command claude --permission-mode auto "$@"
+  local ret=$?
+  # If no other claude processes remain running, clean up session history
+  # (keeps settings.json, plugins, and memory outside these paths)
+  if [[ $(pgrep -x claude 2>/dev/null | wc -l | tr -d ' ') -eq 0 ]]; then
+    rm -rvf ~/.claude/projects/ ~/.claude/file-history/ ~/.claude/shell-snapshots/ ~/.claude/history.jsonl
+  fi
+  return $ret
+}
 copilot() {
   command copilot --allow-all-tools --add-dir /tmp "$@"
   local ret=$?
