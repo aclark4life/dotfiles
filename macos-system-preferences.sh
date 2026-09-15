@@ -95,13 +95,89 @@ run sudo pmset -a displaysleep 0
 
 # --- Keyboard -------------------------------------------------------------
 # Shortcuts → Mission Control: Move left/right a space -> ⌘← / ⌘→
-# (symbolichotkeys IDs 79/80; keycodes 123/124 = Left/Right Arrow; 1048576 = Cmd)
+# macOS 26 (Tahoe) splits each action into primary/alternate symbolichotkeys
+# slots: 79/80 = "Move left a space" (primary/alt), 81/82 = "Move right a
+# space" (primary/alt). Older macOS used a simpler 79=left/80=right scheme;
+# this sets the primary slot for each action and disables the alt slot so it
+# doesn't retain a stray binding. (keycodes 123/124 = Left/Right Arrow;
+# 1048576 = Cmd)
 echo "⌨️  Keyboard: setting Mission Control move-space shortcuts to ⌘← / ⌘→..."
 run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 \
   '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>123</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
 run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 80 \
+  '<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>123</integer><integer>9568256</integer></array><key>type</key><string>standard</string></dict></dict>'
+run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 \
   '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>124</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
-echo "  ℹ️  Log out/in (or restart) for the new shortcuts to take effect."
+run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 82 \
+  '<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>124</integer><integer>9568256</integer></array><key>type</key><string>standard</string></dict></dict>'
+echo "  ℹ️  Restarting Dock/SystemUIServer to apply new shortcuts..."
+run killall Dock >/dev/null 2>&1 || true
+run killall SystemUIServer >/dev/null 2>&1 || true
+
+# --- Mission Control: Desktops (Spaces) -----------------------------------
+# Ensure there are at least TARGET_DESKTOPS desktops/spaces configured.
+# There's no `defaults write` for Spaces; macOS manages them at runtime via
+# the WindowManager process (Dock on older macOS), so this drives Mission
+# Control's UI via Accessibility (System Events) and clicks "add desktop"
+# until the target count is reached. Idempotent: only adds what's missing.
+TARGET_DESKTOPS=4  # 1 default + 3 additional
+
+ensure_accessibility_access() {
+  if osascript -e 'tell application "System Events" to get name of every process' >/dev/null 2>&1; then
+    return 0
+  fi
+  echo "🔐 Accessibility access is required to script Mission Control (Spaces)."
+  echo "   Opening System Settings → Privacy & Security → Accessibility..."
+  open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
+  echo "   Add/enable your terminal app (e.g. Terminal, iTerm) in the list,"
+  echo "   then come back here."
+  read -r -p "   Press [Enter] once you've granted access (or Ctrl-C to skip)... "
+  if osascript -e 'tell application "System Events" to get name of every process' >/dev/null 2>&1; then
+    echo "   ✅ Accessibility access confirmed."
+    return 0
+  fi
+  echo "   ⚠️  Still no Accessibility access. Skipping Mission Control desktops step."
+  return 1
+}
+
+echo "🖥️  Mission Control: ensuring ${TARGET_DESKTOPS} desktops (spaces)..."
+if ensure_accessibility_access; then
+  osascript <<EOF >/dev/null 2>&1
+tell application "System Events"
+    -- macOS 26 (Tahoe) renders Mission Control via the "WindowManager" process;
+    -- older macOS versions render it via "Dock" instead.
+    set mcProcess to missing value
+    repeat with pName in {"WindowManager", "Dock"}
+        if exists process (pName as text) then
+            set mcProcess to process (pName as text)
+            exit repeat
+        end if
+    end repeat
+    if mcProcess is missing value then error "Mission Control process not found"
+
+    do shell script "open -b com.apple.exposelauncher"
+    delay 1.2
+
+    tell mcProcess
+        set spacesBar to group "Spaces Bar" of group 1
+        set spacesList to list 1 of spacesBar
+        set addButton to button 1 of spacesBar
+        set currentCount to count of (UI elements of spacesList)
+        repeat while currentCount < ${TARGET_DESKTOPS}
+            click addButton
+            delay 0.6
+            set currentCount to count of (UI elements of spacesList)
+        end repeat
+    end tell
+    key code 53 -- Escape, exit Mission Control
+end tell
+EOF
+  if [[ $? -eq 0 ]]; then
+    echo "  ✅ Desktops ready."
+  else
+    echo "  ⚠️  Could not script Mission Control desktops (UI layout may differ on this macOS version)."
+  fi
+fi
 
 # --- Users & Groups -------------------------------------------------------------
 # Login Items: add Jumpcut and pCloud Drive if installed
