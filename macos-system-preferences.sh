@@ -93,6 +93,16 @@ run defaults write com.apple.dock show-recents -bool false
 echo "🔒 Lock Screen: display never turns off..."
 run sudo pmset -a displaysleep 0
 
+# --- Keyboard -------------------------------------------------------------
+# Shortcuts → Mission Control: Move left/right a space -> ⌘← / ⌘→
+# (symbolichotkeys IDs 79/80; keycodes 123/124 = Left/Right Arrow; 1048576 = Cmd)
+echo "⌨️  Keyboard: setting Mission Control move-space shortcuts to ⌘← / ⌘→..."
+run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 \
+  '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>123</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
+run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 80 \
+  '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>65535</integer><integer>124</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
+echo "  ℹ️  Log out/in (or restart) for the new shortcuts to take effect."
+
 # --- Users & Groups -------------------------------------------------------------
 # Login Items: add Jumpcut and pCloud Drive if installed
 echo "👤 Users & Groups: adding login items (Jumpcut, pCloud Drive) if installed..."
@@ -116,5 +126,4 @@ killall ControlCenter >/dev/null 2>&1 || true
 echo "✅ All done!"
 echo
 echo "⚠️  Manual steps (not safely scriptable):"
-echo "  - Keyboard → Shortcuts → Mission Control: Move left/right space to ⌘← / ⌘→"
 echo "  - Users & Groups → Auto Login: alexclark (requires manual entry, not scripted for security)"
