@@ -116,9 +116,5 @@ killall ControlCenter >/dev/null 2>&1 || true
 echo "✅ All done!"
 echo
 echo "⚠️  Manual steps (not safely scriptable):"
-echo "  - Terminal → Profiles → Advanced: uncheck all Bell options"
-echo "  - Terminal → Profiles → Shell: Close window when shell exits; Never ask before closing"
-echo "  - Terminal → Profiles → Window: Columns 120, Rows 36; set as Default"
-echo "  - Terminal → Font: increase font size (⌘+)"
 echo "  - Keyboard → Shortcuts → Mission Control: Move left/right space to ⌘← / ⌘→"
 echo "  - Users & Groups → Auto Login: alexclark (requires manual entry, not scripted for security)"
