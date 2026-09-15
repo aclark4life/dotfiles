@@ -8,14 +8,14 @@ function brewfiles() {
 
     echo "📦 Installing from base/Brewfile..."
     if [[ -f ~/Dotfiles/brewfile/base/Brewfile ]]; then
-      brew bundle --file=~/Dotfiles/brewfile/base/Brewfile
+      brew bundle --file=~/Dotfiles/brewfile/base/Brewfile --verbose
     else
       echo "⚠️ Brewfile not found!"
     fi
  
     echo "📦 Installing from developer/Brewfile..."
     if [[ -f ~/Dotfiles/brewfile/developer/Brewfile ]]; then
-      brew bundle --file=~/Dotfiles/brewfile/developer/Brewfile
+      brew bundle --file=~/Dotfiles/brewfile/developer/Brewfile --verbose
     else
       echo "⚠️ Brewfile not found!"
     fi
