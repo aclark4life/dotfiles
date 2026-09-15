@@ -6,7 +6,7 @@
   "dependencies": {
     "@augmentcode/auggie": "latest",
     "@google/gemini-cli": "latest",
-    "mongodb-runner": "latest",
+    "@mongodb-js/mongodb-runner": "latest",
     "@playwright/cli": "latest",
     "js-yaml": "latest"
   }
