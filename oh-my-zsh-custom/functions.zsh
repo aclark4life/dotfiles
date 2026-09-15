@@ -143,7 +143,8 @@ function t () {
 
 # Function to update and push dotfiles to the git repository
 function updatedotfiles() {
-    pushd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
+    local original_dir="$PWD"
+    cd ~/Dotfiles || { echo "Failed to enter ~/Dotfiles"; return 1 }
     echo "🔄 Pulling dotfiles repository..." 
     git pull
 
@@ -158,5 +159,5 @@ function updatedotfiles() {
     # Check for any staged or unstaged changes
         git push
     echo "✅ All done!"
-    popd
+    cd "$original_dir"
 }
