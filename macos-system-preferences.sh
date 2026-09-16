@@ -112,6 +112,140 @@ else
 fi
 eval "$nullglob_was_set"
 
+# Settings → Bookmarks toolbar: "Never" (browser.toolbars.bookmarks.visibility).
+echo "🦊 Firefox: hiding bookmarks toolbar..."
+nullglob_was_set=$(shopt -p nullglob)
+shopt -s nullglob
+firefox_profiles=("$HOME/Library/Application Support/Firefox/Profiles"/*)
+if [[ ${#firefox_profiles[@]} -eq 0 ]]; then
+  echo "  ⚠️  No Firefox profiles found, skipping."
+else
+  for profile in "${firefox_profiles[@]}"; do
+    [[ -d "$profile" ]] || continue
+    user_js="$profile/user.js"
+    if grep -q '"browser.toolbars.bookmarks.visibility"' "$user_js" 2>/dev/null; then
+      run sed -i '' 's/user_pref("browser.toolbars.bookmarks.visibility".*/user_pref("browser.toolbars.bookmarks.visibility", "never");/' "$user_js"
+    else
+      run bash -c "echo 'user_pref(\"browser.toolbars.bookmarks.visibility\", \"never\");' >> \"$user_js\""
+    fi
+  done
+fi
+eval "$nullglob_was_set"
+
+# Settings → Home → Homepage and new windows: "https://www.google.com"
+# (browser.startup.homepage). This also controls the Home button's target.
+echo "🦊 Firefox: setting homepage to google.com..."
+nullglob_was_set=$(shopt -p nullglob)
+shopt -s nullglob
+firefox_profiles=("$HOME/Library/Application Support/Firefox/Profiles"/*)
+if [[ ${#firefox_profiles[@]} -eq 0 ]]; then
+  echo "  ⚠️  No Firefox profiles found, skipping."
+else
+  for profile in "${firefox_profiles[@]}"; do
+    [[ -d "$profile" ]] || continue
+    user_js="$profile/user.js"
+    if grep -q '"browser.startup.homepage"' "$user_js" 2>/dev/null; then
+      run sed -i '' 's#user_pref("browser.startup.homepage".*#user_pref("browser.startup.homepage", "https://www.google.com");#' "$user_js"
+    else
+      run bash -c "echo 'user_pref(\"browser.startup.homepage\", \"https://www.google.com\");' >> \"$user_js\""
+    fi
+  done
+fi
+eval "$nullglob_was_set"
+
+# Settings → Home → New Windows and Tabs → New tabs: "Blank Page"
+# (browser.newtabpage.enabled).
+echo "🦊 Firefox: setting new tab to a blank page..."
+nullglob_was_set=$(shopt -p nullglob)
+shopt -s nullglob
+firefox_profiles=("$HOME/Library/Application Support/Firefox/Profiles"/*)
+if [[ ${#firefox_profiles[@]} -eq 0 ]]; then
+  echo "  ⚠️  No Firefox profiles found, skipping."
+else
+  for profile in "${firefox_profiles[@]}"; do
+    [[ -d "$profile" ]] || continue
+    user_js="$profile/user.js"
+    if grep -q '"browser.newtabpage.enabled"' "$user_js" 2>/dev/null; then
+      run sed -i '' 's/user_pref("browser.newtabpage.enabled".*/user_pref("browser.newtabpage.enabled", false);/' "$user_js"
+    else
+      run bash -c "echo 'user_pref(\"browser.newtabpage.enabled\", false);' >> \"$user_js\""
+    fi
+  done
+fi
+eval "$nullglob_was_set"
+
+# Add the Home button to the toolbar. Unlike the prefs above, toolbar layout
+# (browser.uiCustomization.state) is normal, user-changeable state that
+# Firefox rewrites to prefs.js on every exit, so we deliberately edit
+# prefs.js (not user.js, which would clobber future manual customizations)
+# and only merge "home-button" into whatever layout already exists.
+echo "🦊 Firefox: adding Home button to the toolbar..."
+if pgrep -x firefox >/dev/null 2>&1; then
+  echo "  ⚠️  Firefox is running; quit it and re-run this script (Firefox" \
+       "rewrites prefs.js on exit, which would undo this change)."
+else
+  nullglob_was_set=$(shopt -p nullglob)
+  shopt -s nullglob
+  firefox_profiles=("$HOME/Library/Application Support/Firefox/Profiles"/*)
+  if [[ ${#firefox_profiles[@]} -eq 0 ]]; then
+    echo "  ⚠️  No Firefox profiles found, skipping."
+  else
+    for profile in "${firefox_profiles[@]}"; do
+      [[ -d "$profile" ]] || continue
+      run python3 - "$profile/prefs.js" <<'PYEOF'
+import json
+import re
+import sys
+from pathlib import Path
+
+prefs_path = Path(sys.argv[1])
+DEFAULT_NAVBAR = [
+    "back-button", "forward-button", "stop-reload-button", "home-button",
+    "spring", "urlbar-container", "spring", "downloads-button",
+    "fxa-toolbar-menu-button",
+]
+
+pattern = re.compile(
+    r'user_pref\("browser\.uiCustomization\.state",\s*("(?:[^"\\]|\\.)*")\);'
+)
+
+if not prefs_path.exists():
+    text = ""
+else:
+    text = prefs_path.read_text()
+
+match = pattern.search(text)
+try:
+    if match:
+        state = json.loads(json.loads(match.group(1)))
+        navbar = state.setdefault("placements", {}).setdefault("nav-bar", [])
+        if "home-button" in navbar:
+            print("  ℹ️  Home button already on the toolbar.")
+            sys.exit(0)
+        idx = navbar.index("stop-reload-button") + 1 if "stop-reload-button" in navbar else 0
+        navbar.insert(idx, "home-button")
+    else:
+        state = {"placements": {"nav-bar": DEFAULT_NAVBAR}}
+except (json.JSONDecodeError, ValueError) as exc:
+    print(f"  ⚠️  Couldn't parse existing toolbar layout, skipping: {exc}")
+    sys.exit(0)
+
+new_literal = json.dumps(json.dumps(state, separators=(",", ":")))
+new_line = f'user_pref("browser.uiCustomization.state", {new_literal});'
+
+if match:
+    text = text[:match.start()] + new_line + text[match.end():]
+else:
+    text = text + ("\n" if text and not text.endswith("\n") else "") + new_line + "\n"
+
+prefs_path.write_text(text)
+print("  ✅ Home button added to the toolbar.")
+PYEOF
+    done
+  fi
+  eval "$nullglob_was_set"
+fi
+
 # --- Lock Screen -------------------------------------------------------------
 # Turn display off: Never (applies to all power sources)
 echo "🔒 Lock Screen: display never turns off..."
