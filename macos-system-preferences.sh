@@ -88,6 +88,29 @@ run sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor 
 echo "🚢 Dock: hiding recent applications..."
 run defaults write com.apple.dock show-recents -bool false
 
+# --- Firefox -------------------------------------------------------------
+# Settings → General → Browsing: disable "Show previews for tabs in the
+# taskbar and when switching tabs" (browser.tabs.hoverPreview.enabled).
+# Firefox doesn't read macOS `defaults`; user.js is read at every launch and
+# overrides whatever's in prefs.js, so this is safe even if Firefox is running.
+echo "🦊 Firefox: disabling tab hover preview..."
+shopt -s nullglob
+firefox_profiles=("$HOME/Library/Application Support/Firefox/Profiles"/*)
+if [[ ${#firefox_profiles[@]} -eq 0 ]]; then
+  echo "  ⚠️  No Firefox profiles found, skipping."
+else
+  for profile in "${firefox_profiles[@]}"; do
+    [[ -d "$profile" ]] || continue
+    user_js="$profile/user.js"
+    if grep -q '"browser.tabs.hoverPreview.enabled"' "$user_js" 2>/dev/null; then
+      run sed -i '' 's/user_pref("browser.tabs.hoverPreview.enabled".*/user_pref("browser.tabs.hoverPreview.enabled", false);/' "$user_js"
+    else
+      run bash -c "echo 'user_pref(\"browser.tabs.hoverPreview.enabled\", false);' >> \"$user_js\""
+    fi
+  done
+fi
+shopt -u nullglob
+
 # --- Lock Screen -------------------------------------------------------------
 # Turn display off: Never (applies to all power sources)
 echo "🔒 Lock Screen: display never turns off..."
@@ -206,3 +229,6 @@ echo "  - Users & Groups → Auto Login: alexclark (requires manual entry, not s
 echo "  - Trackpad → More Gestures → Zoom in or out: uncheck to disable pinch-to-zoom"
 echo "    ('defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool false' is set correctly"
 echo "    but has no effect on this macOS build; toggle it manually in System Settings instead.)"
+echo "  - Chrome → Tab hover-card previews: gated by the 'TabHoverCardImages' Chrome"
+echo "    feature flag, not a preference; disable via chrome://flags or by launching"
+echo "    Chrome with --disable-features=TabHoverCardImages."
