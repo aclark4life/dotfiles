@@ -40,7 +40,7 @@ ensure_full_disk_access() {
   open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
   echo "   Add/enable your terminal app (e.g. Terminal, iTerm) in the list,"
   echo "   then come back here."
-  read -r "?   Press [Enter] once you've granted access (or Ctrl-C to skip)... "
+  read -r -p "   Press [Enter] once you've granted access (or Ctrl-C to skip)... "
 
   if defaults write com.apple.universalaccess __fda_test__ -bool true 2>/dev/null; then
     defaults delete com.apple.universalaccess __fda_test__ 2>/dev/null || true
@@ -94,6 +94,7 @@ run defaults write com.apple.dock show-recents -bool false
 # Firefox doesn't read macOS `defaults`; user.js is read at every launch and
 # overrides whatever's in prefs.js, so this is safe even if Firefox is running.
 echo "🦊 Firefox: disabling tab hover preview..."
+nullglob_was_set=$(shopt -p nullglob)
 shopt -s nullglob
 firefox_profiles=("$HOME/Library/Application Support/Firefox/Profiles"/*)
 if [[ ${#firefox_profiles[@]} -eq 0 ]]; then
@@ -109,7 +110,7 @@ else
     fi
   done
 fi
-shopt -u nullglob
+eval "$nullglob_was_set"
 
 # --- Lock Screen -------------------------------------------------------------
 # Turn display off: Never (applies to all power sources)
@@ -136,6 +137,8 @@ run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 82 \
 echo "  ℹ️  Restarting Dock/SystemUIServer to apply new shortcuts..."
 run killall Dock >/dev/null 2>&1 || true
 run killall SystemUIServer >/dev/null 2>&1 || true
+# Give Dock/WindowManager time to come back before scripting Mission Control below.
+sleep 3
 
 # --- Mission Control: Desktops (Spaces) -----------------------------------
 # Ensure there are at least TARGET_DESKTOPS desktops/spaces configured.
@@ -146,10 +149,11 @@ run killall SystemUIServer >/dev/null 2>&1 || true
 TARGET_DESKTOPS=4  # 1 default + 3 additional
 
 ensure_accessibility_access() {
+  local purpose="${1:-script System Events}"
   if osascript -e 'tell application "System Events" to get name of every process' >/dev/null 2>&1; then
     return 0
   fi
-  echo "🔐 Accessibility access is required to script Mission Control (Spaces)."
+  echo "🔐 Accessibility access is required to ${purpose}."
   echo "   Opening System Settings → Privacy & Security → Accessibility..."
   open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
   echo "   Add/enable your terminal app (e.g. Terminal, iTerm) in the list,"
@@ -159,12 +163,12 @@ ensure_accessibility_access() {
     echo "   ✅ Accessibility access confirmed."
     return 0
   fi
-  echo "   ⚠️  Still no Accessibility access. Skipping Mission Control desktops step."
+  echo "   ⚠️  Still no Accessibility access."
   return 1
 }
 
 echo "🖥️  Mission Control: ensuring ${TARGET_DESKTOPS} desktops (spaces)..."
-if ensure_accessibility_access; then
+if ensure_accessibility_access "script Mission Control (Spaces)"; then
   osascript <<EOF >/dev/null 2>&1
 tell application "System Events"
     -- macOS 26 (Tahoe) renders Mission Control via the "WindowManager" process;
@@ -213,15 +217,16 @@ fi
 # throws AppleEvent handler errors on this macOS build, so instead we
 # install a LaunchAgent that runs wallpaper-rotate.sh hourly, which picks a
 # random image and sets it directly (System Events' `set picture of every
-# desktop` does work reliably).
+# desktop` does work reliably). Note: the `.madesktop` bundles in
+# /System/Library/Desktop Pictures are accepted but render as a solid color,
+# so wallpaper-rotate.sh only uses plain image files.
 WALLPAPER_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/wallpaper-rotate.sh"
 WALLPAPER_AGENT_LABEL="com.aclark4life.wallpaper-rotate"
 WALLPAPER_AGENT_PLIST="$HOME/Library/LaunchAgents/${WALLPAPER_AGENT_LABEL}.plist"
 
 echo "🖼  Desktop: installing hourly wallpaper rotation LaunchAgent..."
-if ensure_accessibility_access; then
-  mkdir -p "$HOME/Library/LaunchAgents"
-  cat > "$WALLPAPER_AGENT_PLIST" <<EOF
+mkdir -p "$HOME/Library/LaunchAgents"
+cat > "$WALLPAPER_AGENT_PLIST" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -240,22 +245,29 @@ if ensure_accessibility_access; then
 </dict>
 </plist>
 EOF
-  run launchctl bootout "gui/$(id -u)/${WALLPAPER_AGENT_LABEL}" >/dev/null 2>&1
-  run launchctl bootstrap "gui/$(id -u)" "$WALLPAPER_AGENT_PLIST"
-  echo "  ✅ Wallpaper rotates every hour (LaunchAgent: ${WALLPAPER_AGENT_LABEL})."
-fi
+run launchctl bootout "gui/$(id -u)/${WALLPAPER_AGENT_LABEL}" >/dev/null 2>&1
+run launchctl bootstrap "gui/$(id -u)" "$WALLPAPER_AGENT_PLIST"
+echo "  ✅ Wallpaper rotates every hour (LaunchAgent: ${WALLPAPER_AGENT_LABEL})."
+echo "  ℹ️  The agent needs Automation → System Events permission for /bin/bash;"
+echo "     approve the prompt the first time it runs (Privacy & Security → Automation)."
 
 # --- Users & Groups -------------------------------------------------------------
 # Login Items: add Jumpcut and pCloud Drive if installed
 echo "👤 Users & Groups: adding login items (Jumpcut, pCloud Drive) if installed..."
 add_login_item() {
   local app_path="$1"
-  if [[ -d "$app_path" ]]; then
-    osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"$app_path\", hidden:false}" \
-      >/dev/null 2>&1 || echo "  ⚠️  Could not add login item: $app_path"
-  else
+  local app_name
+  app_name="$(basename "$app_path" .app)"
+  if [[ ! -d "$app_path" ]]; then
     echo "  ⚠️  Skipping (not installed): $app_path"
+    return
   fi
+  if osascript -e "tell application \"System Events\" to get name of login item \"$app_name\"" >/dev/null 2>&1; then
+    echo "  ℹ️  Already a login item: $app_name"
+    return
+  fi
+  osascript -e "tell application \"System Events\" to make login item at end with properties {path:\"$app_path\", hidden:false}" \
+    >/dev/null 2>&1 || echo "  ⚠️  Could not add login item: $app_path"
 }
 add_login_item "/Applications/Jumpcut.app"
 add_login_item "/Applications/pCloud Drive.app"
