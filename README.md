@@ -36,14 +36,6 @@ Configuration for the `dotfiles` tool itself lives in [`dotfilesrc`](dotfilesrc)
 
 Most files (shell, Git, SSH, editor, and CLI tool configuration) work on both macOS and Linux. A few — `Finder/`, `macos-system-preferences.sh`, `wallpaper-rotate.sh`, and `terminal-background-color.scpt` — are macOS-specific.
 
-## Usage
-
-Apply macOS system preferences:
-
-```console
-$ ./macos-system-preferences.sh
-```
-
 `macos-system-preferences.sh` applies the settings documented in [aclark4life/setup](https://github.com/aclark4life/setup#macos-system-preferences), my broader machine setup repo.
 
 ## License
