@@ -17,6 +17,7 @@
   - [checkoutmanager.cfg](#checkoutmanagercfg)
   - [config](#config)
   - [dotfilesrc](#dotfilesrc)
+  - [gitconfig](#gitconfig)
   - [inputrc](#inputrc)
   - [nvm](#nvm)
   - [pdbrc](#pdbrc)
@@ -53,6 +54,7 @@
 │   └── nvim
 │       └── init.vim
 ├── dotfilesrc
+├── gitconfig
 ├── inputrc
 ├── nvm
 │   └── nvm.sh
@@ -75,7 +77,7 @@
 ├── zprofile
 └── zshrc
 
-8 directories, 25 files
+8 directories, 26 files
 ```
 
 ## [Brewfile](https://github.com/aclark4life/dotfiles/blob/main/Brewfile)
@@ -113,6 +115,11 @@
 ## [dotfilesrc](https://github.com/aclark4life/dotfiles/blob/main/dotfilesrc)
 
 - Configuration file for [dotfiles](https://github.com/jbernard/dotfiles).
+
+## [gitconfig](https://github.com/aclark4life/dotfiles/blob/main/gitconfig)
+
+- Global git config: `user.name` and `user.email`.
+- Symlinked to `~/.gitconfig` by [dotfiles](https://github.com/jbernard/dotfiles).
 
 ## [inputrc](https://github.com/aclark4life/dotfiles/blob/main/inputrc)
 
