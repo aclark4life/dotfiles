@@ -433,3 +433,8 @@ echo "    but has no effect on this macOS build; toggle it manually in System Se
 echo "  - Chrome → Tab hover-card previews: gated by the 'TabHoverCardImages' Chrome"
 echo "    feature flag, not a preference; disable via chrome://flags or by launching"
 echo "    Chrome with --disable-features=TabHoverCardImages."
+echo "  - Chrome → Show Home button + homepage: Chrome protects these settings with"
+echo "    a tamper-check (a hash in its Preferences file) and silently resets them"
+echo "    ~15-20s after launch if changed outside the app, so this can't be scripted."
+echo "    Set manually: chrome://settings/appearance → 'Show Home button' → enter"
+echo "    https://www.google.com."
