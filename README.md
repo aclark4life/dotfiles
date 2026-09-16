@@ -38,11 +38,10 @@ Most files (shell, Git, SSH, editor, and CLI tool configuration) work on both ma
 
 ## Usage
 
-Apply macOS system preferences (also available as the `macprefs` alias, defined in `oh-my-zsh-custom/aliases.zsh`):
+Apply macOS system preferences:
 
 ```console
 $ ./macos-system-preferences.sh
-$ macprefs
 ```
 
 `macos-system-preferences.sh` applies the settings documented in [aclark4life/setup](https://github.com/aclark4life/setup#macos-system-preferences), my broader machine setup repo.
