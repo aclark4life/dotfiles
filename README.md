@@ -7,33 +7,9 @@
 
 ## Table of Contents
 
-- **Files and directories**
-
-  - [LICENSE.txt](#licensetxt)
-  - [README.md](#readmemd)
-  - [brewfile](#brewfile)
-  - [checkoutmanager.cfg](#checkoutmanagercfg)
-  - [config](#config)
-  - [dotfilesrc](#dotfilesrc)
-  - [Finder](#finder)
-  - [gitconfig](#gitconfig)
-  - [inputrc](#inputrc)
-  - [justfile](#justfile)
-  - [macos-system-preferences.sh](#macos-system-preferencessh)
-  - [npmrc](#npmrc)
-  - [nvm](#nvm)
-  - [oh-my-zsh-custom](#oh-my-zsh-custom)
-  - [package.json](#packagejson)
-  - [pdbrc](#pdbrc)
-  - [pipxfile](#pipxfile)
-  - [ssh](#ssh)
-  - [terminal-background-color.scpt](#terminal-background-colorscpt)
-  - [wallpaper-rotate.sh](#wallpaper-rotatesh)
-  - [zprofile](#zprofile)
-  - [zshrc](#zshrc)
-
+- [Tree](#tree)
+- [Files and directories](#files-and-directories)
 - **Description**
-
   - [Checkout Manager](#checkout-manager)
   - [Just](#just)
   - [MongoDB](#mongodb)
@@ -88,106 +64,32 @@
 10 directories, 30 files
 ```
 
-## [LICENSE.txt](https://github.com/aclark4life/dotfiles/blob/main/LICENSE.txt)
+## Files and directories
 
-- Ye Olde [MIT License](https://opensource.org/license/mit).
-
-## [README.md](https://github.com/aclark4life/dotfiles/blob/main/README.md)
-
-- This file.
-
-## [brewfile](https://github.com/aclark4life/dotfiles/blob/main/brewfile)
-
-- `base/Brewfile` and `developer/Brewfile` contain brew formulas and casks.
-- Installed and updated with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh) alias, which calls [`brewfiles`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh).
-
-## [checkoutmanager.cfg](https://github.com/aclark4life/dotfiles/blob/main/checkoutmanager.cfg)
-
-- Contains repositories managed by [checkoutmanager](https://github.com/reinout/checkoutmanager).
-- Additional repositories found in `.config/checkoutmanager/checkoutmanager.cfg` will be managed by [oh-my-zsh-custom/functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh).
-
-## [config](https://github.com/aclark4life/dotfiles/blob/main/config)
-
-- Disable mouse in [config/nvim/init.lua](https://github.com/aclark4life/dotfiles/blob/main/config/nvim/init.lua).
-- [config/kitty/kitty.conf](https://github.com/aclark4life/dotfiles/blob/main/config/kitty/kitty.conf) configures the [kitty](https://sw.kovidgoyal.net/kitty/) terminal.
-
-## [dotfilesrc](https://github.com/aclark4life/dotfiles/blob/main/dotfilesrc)
-
-- Configuration file for [dotfiles](https://github.com/jbernard/dotfiles).
-
-## [Finder](https://github.com/aclark4life/dotfiles/blob/main/Finder)
-
-- Contains macOS Finder shortcuts to launch server connections.
-
-## [gitconfig](https://github.com/aclark4life/dotfiles/blob/main/gitconfig)
-
-- Global git config: `user.name` and `user.email`.
-- Symlinked to `~/.gitconfig` by [dotfiles](https://github.com/jbernard/dotfiles).
-
-## [inputrc](https://github.com/aclark4life/dotfiles/blob/main/inputrc)
-
-- Enable `vi` key bindings for Readline in the Python interpreter.
-
-## [justfile](https://github.com/aclark4life/dotfiles/blob/main/justfile)
-
-- Recipes for [just](https://github.com/casey/just), which replaced the old `Makefile`/`project.mk` (see [Just](#just)).
-- Run with the [`j`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh) alias (also `je` to edit, `jl` to list recipes).
-
-## [macos-system-preferences.sh](https://github.com/aclark4life/dotfiles/blob/main/macos-system-preferences.sh)
-
-- Applies macOS System Preferences settings; safe to re-run. Aliased to `macprefs`.
-- Installs the [wallpaper-rotate.sh](#wallpaper-rotatesh) LaunchAgent.
-
-## [npmrc](https://github.com/aclark4life/dotfiles/blob/main/npmrc)
-
-- Allows post-install scripts for `node-pty` and `@github/keytar`.
-
-## [nvm](https://github.com/aclark4life/dotfiles/blob/main/nvm)
-
-- Configure [Node Version Manager](https://github.com/nvm-sh/nvm).
-
-## [oh-my-zsh-custom](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom)
-
-- Oh My Zsh customizations.
-
-    - [aliases.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh)
-    - [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh)
-    - [scripts.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/scripts.zsh)
-    - [variables.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/variables.zsh)
-
-## [package.json](https://github.com/aclark4life/dotfiles/blob/main/package.json)
-
-- `npm install -g` via [functions.zsh](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh).
-
-## [pdbrc](https://github.com/aclark4life/dotfiles/blob/main/pdbrc)
-
-- Configure `vi` key bindings in Readline in `pdb`.
-
-## [pipxfile](https://github.com/aclark4life/dotfiles/blob/main/pipxfile)
-
-- Contains "pipx packages".
-- Installed and updated by `pipx` with the [`u`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh) alias and [`pipxfiles`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/functions.zsh) function.
-
-## [ssh](https://github.com/aclark4life/dotfiles/blob/main/ssh)
-
-- Configure ssh identity in [ssh/config](https://github.com/aclark4life/dotfiles/blob/main/ssh/config).
-- Create identity file with [k](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom/aliases.zsh).
-
-## [terminal-background-color.scpt](https://github.com/aclark4life/dotfiles/blob/main/terminal-background-color.scpt)
-
-- Picks a random theme for Terminal.app.
-
-## [wallpaper-rotate.sh](https://github.com/aclark4life/dotfiles/blob/main/wallpaper-rotate.sh)
-
-- Rotates the desktop wallpaper hourly via a LaunchAgent installed by [macos-system-preferences.sh](#macos-system-preferencessh).
-
-## [zprofile](https://github.com/aclark4life/dotfiles/blob/main/zprofile)
-
-- Login shell configuration.
-
-## [zshrc](https://github.com/aclark4life/dotfiles/blob/main/zshrc)
-
-- Oh My Zsh configuration.
+| Entry | Description |
+|---|---|
+| [`LICENSE.txt`](https://github.com/aclark4life/dotfiles/blob/main/LICENSE.txt) | Ye Olde [MIT License](https://opensource.org/license/mit). |
+| [`README.md`](https://github.com/aclark4life/dotfiles/blob/main/README.md) | This file. |
+| [`brewfile/`](https://github.com/aclark4life/dotfiles/blob/main/brewfile) | `base/Brewfile` + `developer/Brewfile`; installed via the `u` alias → `brewfiles` function. |
+| [`checkoutmanager.cfg`](https://github.com/aclark4life/dotfiles/blob/main/checkoutmanager.cfg) | Repos managed by [checkoutmanager](https://github.com/reinout/checkoutmanager). |
+| [`config/`](https://github.com/aclark4life/dotfiles/blob/main/config) | `nvim/init.lua` (mouse off, tabs) and `kitty/kitty.conf`. |
+| [`dotfilesrc`](https://github.com/aclark4life/dotfiles/blob/main/dotfilesrc) | Config for the [dotfiles](https://github.com/jbernard/dotfiles) tool itself. |
+| [`Finder/`](https://github.com/aclark4life/dotfiles/blob/main/Finder) | macOS Finder shortcuts to launch server connections. |
+| [`gitconfig`](https://github.com/aclark4life/dotfiles/blob/main/gitconfig) | Global git `user.name`/`user.email`; symlinked to `~/.gitconfig`. |
+| [`inputrc`](https://github.com/aclark4life/dotfiles/blob/main/inputrc) | `vi` keybindings for Readline in the Python interpreter. |
+| [`justfile`](https://github.com/aclark4life/dotfiles/blob/main/justfile) | [just](https://github.com/casey/just) recipes; replaces the old `Makefile`. Run via `j`/`je`/`jl`. |
+| [`macos-system-preferences.sh`](https://github.com/aclark4life/dotfiles/blob/main/macos-system-preferences.sh) | Applies macOS system prefs; aliased to `macprefs`. |
+| [`npmrc`](https://github.com/aclark4life/dotfiles/blob/main/npmrc) | Allow post-install scripts for specific packages. |
+| [`nvm/`](https://github.com/aclark4life/dotfiles/blob/main/nvm) | [Node Version Manager](https://github.com/nvm-sh/nvm) config. |
+| [`oh-my-zsh-custom/`](https://github.com/aclark4life/dotfiles/blob/main/oh-my-zsh-custom) | `aliases.zsh`, `functions.zsh`, `scripts.zsh`, `variables.zsh`. |
+| [`package.json`](https://github.com/aclark4life/dotfiles/blob/main/package.json) | Global npm CLI tools manifest, installed via `npmfiles`. |
+| [`pdbrc`](https://github.com/aclark4life/dotfiles/blob/main/pdbrc) | `vi` keybindings in `pdb`. |
+| [`pipxfile`](https://github.com/aclark4life/dotfiles/blob/main/pipxfile) | pipx package list, installed/updated via the `u` alias. |
+| [`ssh/`](https://github.com/aclark4life/dotfiles/blob/main/ssh) | ssh config (identity per host). |
+| [`terminal-background-color.scpt`](https://github.com/aclark4life/dotfiles/blob/main/terminal-background-color.scpt) | Picks a random theme for Terminal.app. |
+| [`wallpaper-rotate.sh`](https://github.com/aclark4life/dotfiles/blob/main/wallpaper-rotate.sh) | Hourly wallpaper rotation, installed as a LaunchAgent by `macos-system-preferences.sh`. |
+| [`zprofile`](https://github.com/aclark4life/dotfiles/blob/main/zprofile) | Login shell configuration. |
+| [`zshrc`](https://github.com/aclark4life/dotfiles/blob/main/zshrc) | Oh My Zsh configuration. |
 
 # Checkout Manager
 
@@ -196,7 +98,7 @@
 # Just
 
 - [just](https://github.com/casey/just) is installed by `brew` (`brewfile/developer/Brewfile`) and replaces the old `Makefile`/[project-makefile](https://github.com/aclark4life/project-makefile) setup.
-- Recipes live in [justfile](#justfile); run them with the `j` alias (`je` to edit, `jl` to list).
+- Recipes live in `justfile`; run them with the `j` alias (`je` to edit, `jl` to list).
 
 # MongoDB
 
