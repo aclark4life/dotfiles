@@ -17,9 +17,10 @@ claude() {
 copilot() {
   command copilot --allow-all-tools --add-dir /tmp "$@"
   local ret=$?
-  # If no other copilot processes remain running, clean up ~/.copilot
+  # If no other copilot processes remain running, clean up session/history
+  # data (keeps config.json, which holds login credentials, intact)
   if [[ $(pgrep -x copilot 2>/dev/null | wc -l | tr -d ' ') -eq 0 ]]; then
-    rm -rvf ~/.copilot/
+    rm -rvf ~/.copilot/session-state/ ~/.copilot/logs/ ~/.copilot/command-history-state.json ~/.copilot/open-sessions-state.json ~/.copilot/session-store.db*
   fi
   return $ret
 }
