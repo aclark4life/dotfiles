@@ -2,6 +2,8 @@
 
 My personal dotfiles for macOS & Linux, managed with [dotfiles](https://pypi.org/project/dotfiles/) and installed via `pipx`.
 
+`macos-system-preferences.sh` applies the settings documented in [aclark4life/setup](https://github.com/aclark4life/setup#macos-system-preferences), my broader machine setup repo.
+
 ## Installation
 
 ```console
@@ -35,8 +37,6 @@ Configuration for the `dotfiles` tool itself lives in [`dotfilesrc`](dotfilesrc)
 | `terminal-background-color.scpt` | AppleScript to set Terminal background color (macOS) |
 
 Most files (shell, Git, SSH, editor, and CLI tool configuration) work on both macOS and Linux. A few — `Finder/`, `macos-system-preferences.sh`, `wallpaper-rotate.sh`, and `terminal-background-color.scpt` — are macOS-specific.
-
-`macos-system-preferences.sh` applies the settings documented in [aclark4life/setup](https://github.com/aclark4life/setup#macos-system-preferences), my broader machine setup repo.
 
 ## License
 
