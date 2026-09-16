@@ -44,4 +44,10 @@ if [[ ${#images[@]} -eq 0 ]]; then
 fi
 
 picked="${images[$RANDOM % ${#images[@]}]}"
-osascript -e "tell application \"System Events\" to set picture of every desktop to POSIX file \"${picked}\""
+# Pass the path as an argv to osascript (rather than interpolating it into
+# the script text) so filenames containing quotes/backslashes can't break
+# or inject into the AppleScript.
+osascript -e 'on run argv
+  set thePath to item 1 of argv
+  tell application "System Events" to set picture of every desktop to POSIX file thePath
+end run' "$picked"
