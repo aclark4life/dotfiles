@@ -202,6 +202,49 @@ EOF
   fi
 fi
 
+# --- Desktop & Screen Saver: Wallpaper rotation ---------------------------
+# Desktop & Screen Saver → Desktop picture → Change picture: rotate the
+# desktop wallpaper hourly from macOS's built-in wallpaper collection, on
+# every display. Spaces share one desktop picture by default, so this
+# covers all Mission Control desktops too.
+#
+# The native "Change picture" rotation exposed via System Events' `desktop`
+# scripting properties (picture rotation, random order, change interval)
+# throws AppleEvent handler errors on this macOS build, so instead we
+# install a LaunchAgent that runs wallpaper-rotate.sh hourly, which picks a
+# random image and sets it directly (System Events' `set picture of every
+# desktop` does work reliably).
+WALLPAPER_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/wallpaper-rotate.sh"
+WALLPAPER_AGENT_LABEL="com.aclark4life.wallpaper-rotate"
+WALLPAPER_AGENT_PLIST="$HOME/Library/LaunchAgents/${WALLPAPER_AGENT_LABEL}.plist"
+
+echo "🖼  Desktop: installing hourly wallpaper rotation LaunchAgent..."
+if ensure_accessibility_access; then
+  mkdir -p "$HOME/Library/LaunchAgents"
+  cat > "$WALLPAPER_AGENT_PLIST" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>${WALLPAPER_AGENT_LABEL}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>${WALLPAPER_SCRIPT}</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>3600</integer>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
+EOF
+  run launchctl bootout "gui/$(id -u)/${WALLPAPER_AGENT_LABEL}" >/dev/null 2>&1
+  run launchctl bootstrap "gui/$(id -u)" "$WALLPAPER_AGENT_PLIST"
+  echo "  ✅ Wallpaper rotates every hour (LaunchAgent: ${WALLPAPER_AGENT_LABEL})."
+fi
+
 # --- Users & Groups -------------------------------------------------------------
 # Login Items: add Jumpcut and pCloud Drive if installed
 echo "👤 Users & Groups: adding login items (Jumpcut, pCloud Drive) if installed..."
