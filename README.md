@@ -1,6 +1,6 @@
 # dotfiles
 
-My personal macOS dotfiles, managed with [dotfiles](https://pypi.org/project/dotfiles/) and installed via `pipx`.
+My personal dotfiles for macOS & Linux, managed with [dotfiles](https://pypi.org/project/dotfiles/) and installed via `pipx`.
 
 ## Installation
 
@@ -31,9 +31,11 @@ Configuration for the `dotfiles` tool itself lives in [`dotfilesrc`](dotfilesrc)
 | `ssh/` | SSH client config, known hosts, and agent settings |
 | `Finder/` | macOS `.inetloc`/`.rdp`/`.vncloc` shortcuts |
 | `macos-system-preferences.sh` | Applies macOS system preference defaults (idempotent, safe to re-run) |
-| `wallpaper-rotate.sh` | Rotates the desktop wallpaper via a LaunchAgent |
-| `terminal-background-color.scpt` | AppleScript to set Terminal background color |
+| `wallpaper-rotate.sh` | Rotates the desktop wallpaper via a LaunchAgent (macOS) |
+| `terminal-background-color.scpt` | AppleScript to set Terminal background color (macOS) |
 | `justfile` | Task runner recipes (`just --list` to see them) |
+
+Most files (shell, Git, SSH, editor, and CLI tool configuration) work on both macOS and Linux. A few — `Finder/`, `macos-system-preferences.sh`, `wallpaper-rotate.sh`, and `terminal-background-color.scpt` — are macOS-specific.
 
 ## Usage
 
