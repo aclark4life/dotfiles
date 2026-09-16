@@ -293,7 +293,6 @@ killall ControlCenter >/dev/null 2>&1 || true
 echo "✅ All done!"
 echo
 echo "⚠️  Manual steps (not safely scriptable):"
-echo "  - Users & Groups → Auto Login: alexclark (requires manual entry, not scripted for security)"
 echo "  - Trackpad → More Gestures → Zoom in or out: uncheck to disable pinch-to-zoom"
 echo "    ('defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool false' is set correctly"
 echo "    but has no effect on this macOS build; toggle it manually in System Settings instead.)"
