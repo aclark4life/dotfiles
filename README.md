@@ -33,22 +33,16 @@ Configuration for the `dotfiles` tool itself lives in [`dotfilesrc`](dotfilesrc)
 | `macos-system-preferences.sh` | Applies macOS system preference defaults (idempotent, safe to re-run) |
 | `wallpaper-rotate.sh` | Rotates the desktop wallpaper via a LaunchAgent (macOS) |
 | `terminal-background-color.scpt` | AppleScript to set Terminal background color (macOS) |
-| `justfile` | Task runner recipes (`just --list` to see them) |
 
 Most files (shell, Git, SSH, editor, and CLI tool configuration) work on both macOS and Linux. A few — `Finder/`, `macos-system-preferences.sh`, `wallpaper-rotate.sh`, and `terminal-background-color.scpt` — are macOS-specific.
 
 ## Usage
 
-List available tasks:
-
-```console
-$ just
-```
-
-Apply macOS system preferences:
+Apply macOS system preferences (also available as the `macprefs` alias, defined in `oh-my-zsh-custom/aliases.zsh`):
 
 ```console
 $ ./macos-system-preferences.sh
+$ macprefs
 ```
 
 `macos-system-preferences.sh` applies the settings documented in [aclark4life/setup](https://github.com/aclark4life/setup#macos-system-preferences), my broader machine setup repo.
