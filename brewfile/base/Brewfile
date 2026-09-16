@@ -1,3 +1,4 @@
+brew "carla"
 brew "direnv"
 brew "neovim"
 brew "pyenv"
