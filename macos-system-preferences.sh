@@ -140,6 +140,19 @@ run killall SystemUIServer >/dev/null 2>&1 || true
 # Give Dock/WindowManager time to come back before scripting Mission Control below.
 sleep 3
 
+# --- Desktop & Dock: Mission Control mouse shortcut -----------------------
+# Desktop & Dock → Mission Control → Mouse shortcut: Middle Mouse Button.
+# macOS stores mouse shortcuts in com.apple.symbolichotkeys alongside the
+# keyboard ones, but with `type` = "button" instead of "standard". Setting
+# the Mission Control mouse shortcut writes a pair of entries: 38 = Mission
+# Control, 40 = Application Windows (the same button plus ⇧, modifier mask
+# 131072). Parameters are (button, button, modifiers); 4 = middle button.
+echo "🖱  Desktop & Dock: mapping middle mouse button to Mission Control..."
+run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 38 \
+  '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>4</integer><integer>4</integer><integer>0</integer></array><key>type</key><string>button</string></dict></dict>'
+run defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 40 \
+  '<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>4</integer><integer>4</integer><integer>131072</integer></array><key>type</key><string>button</string></dict></dict>'
+
 # --- Mission Control: Desktops (Spaces) -----------------------------------
 # Ensure there are at least TARGET_DESKTOPS desktops/spaces configured.
 # There's no `defaults write` for Spaces; macOS manages them at runtime via
