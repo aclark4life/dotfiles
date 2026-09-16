@@ -2,6 +2,8 @@
 
 My personal dotfiles for macOS & Linux, managed with [dotfiles](https://pypi.org/project/dotfiles/) and installed via `pipx`.
 
+See also: [aclark4life/setup](https://github.com/aclark4life/setup), my broader machine setup repo.
+
 ## Installation
 
 ```console
