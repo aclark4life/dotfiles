@@ -73,6 +73,10 @@ echo "🔋 Battery: display never sleeps on power adapter, Power Nap disabled...
 run sudo pmset -c displaysleep 0
 run sudo pmset -c powernap 0
 
+# Battery → uncheck "Slightly dim the display while on battery power"
+echo "🔋 Battery: disable dimming display on battery power..."
+run sudo pmset -b lessbright 0
+
 # --- Bluetooth -------------------------------------------------------------
 # Show Bluetooth in menu bar
 echo "🔵 Bluetooth: showing menu bar icon..."
