@@ -442,3 +442,9 @@ echo "    a tamper-check (a hash in its Preferences file) and silently resets th
 echo "    ~15-20s after launch if changed outside the app, so this can't be scripted."
 echo "    Set manually: chrome://settings/appearance → 'Show Home button' → enter"
 echo "    https://www.google.com."
+echo "  - Safari/AutoFill → Bitwarden: there's no public 'defaults write' key for the"
+echo "    default AutoFill/password manager, so this must be set by hand. Opening"
+echo "    System Settings → General → AutoFill & Passwords..."
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_Passwords" >/dev/null 2>&1 || true
+echo "    Enable Bitwarden as an allowed AutoFill extension and set it as the"
+echo "    default password manager."
