@@ -45,3 +45,6 @@ PERL_MM_OPT="INSTALL_BASE=/Users/alex.clark/perl5"; export PERL_MM_OPT;
 # Added by Copilot CLI: use Homebrew OpenJDK for javac/java
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/alex.clark/.local/bin:$PATH"
+
+# Fortune on new interactive shells
+[[ -o interactive ]] && command -v fortune >/dev/null && fortune
