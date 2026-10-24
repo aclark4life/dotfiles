@@ -1,5 +1,5 @@
-brew "carla"
 brew "direnv"
+brew "fortune"
 brew "neovim"
 brew "pyenv"
 brew "xeyes"
