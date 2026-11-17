@@ -1,1 +1,1 @@
-allow-scripts=koffi
+allow-scripts=koffi,node-pty,@github/keytar
