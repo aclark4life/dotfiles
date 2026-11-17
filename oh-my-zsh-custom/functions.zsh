@@ -80,7 +80,8 @@ function npmfiles() {
   fi
 
   echo "📦 Installing: ${(f)packages}"
-  npm install -g ${(f)packages}
+  # Hide known upstream deprecation noise (@github/keytar via @google/gemini-cli)
+  npm install -g ${(f)packages} 2> >(grep -v 'deprecated @github/keytar' >&2)
   echo "✅ All done!"
 }
 
