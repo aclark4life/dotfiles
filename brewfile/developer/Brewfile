@@ -1,5 +1,4 @@
 brew "awscli"
-brew "azure-cli"
 brew "cmake"
 brew "duf"
 brew "gcalcli"
