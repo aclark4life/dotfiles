@@ -4,10 +4,8 @@
   "description": "Manifest for my global CLI tools",
   "private": true,
   "dependencies": {
-    "@augmentcode/auggie": "latest",
     "@google/gemini-cli": "latest",
     "@mongodb-js/mongodb-runner": "latest",
-    "@playwright/cli": "latest",
     "js-yaml": "latest"
   }
 }
